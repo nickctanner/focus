@@ -16,7 +16,7 @@ const Header = () => {
         <p>Simple. Clean. Done.</p>
       </div>
       <div className="header-profile">
-        <p>user name</p>
+        <p>User Name / email</p>
         <button
           className="button log"
           style={{ display: focus ? "none" : "block" }}
