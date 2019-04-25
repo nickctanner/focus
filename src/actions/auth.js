@@ -1,17 +1,20 @@
 import { firebase, googleAuthProvider } from "../firebase/firebase";
 
-export const startLogin = (fn) => {
+export const startLogin = fn => {
   return firebase
     .auth()
-    .signInWithPopup(googleAuthProvider).then((result) => {
+    .signInWithPopup(googleAuthProvider)
+    .then(result => {
       const user = {
         email: result.user.email,
-        avatar: result.user.photoURL
-      }
+        avatar: result.user.photoURL,
+        uid: result.user.uid
+      };
       fn(user);
-    }).catch((error) => {
-      console.log(error.code, error.message);
     })
+    .catch(error => {
+      console.log(error.code, error.message);
+    });
 };
 
 export const startLogout = () => {

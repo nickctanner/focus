@@ -6,31 +6,37 @@ import CredentialsContext from "../context/credentials-context";
 import LoginPage from "../components/LoginPage";
 import NotFoundPage from "../components/NotFoundPage";
 import App from "../components/App";
+import PublicRoute from "./PublicRoute";
+import PrivateRoute from "./PrivateRoute";
 
 export const history = createBrowserHistory();
 
 const AppRouter = () => {
-  const [userEmail, setUserEmail] = useState('');
-  const [userAvatar, setUserAvatar] = useState('');
+  const [userEmail, setUserEmail] = useState("");
+  const [userAvatar, setUserAvatar] = useState("");
+  const [uid, setUid] = useState();
 
-  const handleSetUserDisplay = (user) => {
+  const handleSetUser = user => {
     setUserEmail(user.email);
     setUserAvatar(user.avatar);
+    setUid(user.uid);
   };
 
   return (
     <Router history={history}>
-      <CredentialsContext.Provider value={{ userEmail, userAvatar, handleSetUserDisplay }}>
+      <CredentialsContext.Provider
+        value={{ userEmail, userAvatar, uid, handleSetUser }}
+      >
         <div>
           <Switch>
-            <Route exact path="/" component={LoginPage} />
-            <Route path="/notes" component={App} />
+            <PublicRoute exact path="/" component={LoginPage} />
+            <PrivateRoute exact path="/notes" component={App} />
             <Route component={NotFoundPage} />
           </Switch>
         </div>
       </CredentialsContext.Provider>
     </Router>
   );
-}
+};
 
 export { AppRouter as default };
