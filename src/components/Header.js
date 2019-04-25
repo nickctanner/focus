@@ -6,7 +6,7 @@ import { startLogout } from "../actions/auth";
 
 const Header = () => {
   const { focus } = useContext(NotesContext);
-  const { userName } = useContext(CredentialsContext);
+  const { userEmail, userAvatar } = useContext(CredentialsContext);
 
   return (
     <div
@@ -18,7 +18,10 @@ const Header = () => {
         <p>Simple. Clean. Done.</p>
       </div>
       <div className="header-profile">
-        <p>Welcome, {userName}</p>
+        <div className="credentials">
+          <img src={userAvatar || '/images/user.png'} alt="User's Avatar" />
+          <span>{userEmail || 'Hello User'}</span>
+        </div>
         <button
           className="button log"
           style={{ display: focus ? "none" : "block" }}

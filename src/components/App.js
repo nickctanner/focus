@@ -20,7 +20,7 @@ const App = () => {
 
   useEffect(() => {
     localStorage.setItem("notes", JSON.stringify(notes));
-    database.ref("focus").set(notes);
+    // database.ref("focus").set(notes);
   }, [notes]);
 
   const toggleFocus = () => {
