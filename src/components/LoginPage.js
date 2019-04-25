@@ -4,7 +4,7 @@ import CredentialsContext from "../context/credentials-context";
 import { startLogin } from "../actions/auth";
 
 const LoginPage = () => {
-  const { userName, handleSetUserName } = useContext(CredentialsContext);
+  const { handleSetUserDisplay } = useContext(CredentialsContext);
 
   return (
     <div className="login-box">
@@ -13,7 +13,7 @@ const LoginPage = () => {
         <p>Simple. Clean. Done.</p>
         <button
           className="button log"
-          onClick={() => startLogin(handleSetUserName(userName))}
+          onClick={() => startLogin(handleSetUserDisplay)}
         >
           Continue with Google
         </button>
