@@ -6,7 +6,7 @@ import { startLogout } from "../actions/auth";
 
 const Header = () => {
   const { focus } = useContext(NotesContext);
-  const { userEmail, userAvatar } = useContext(CredentialsContext);
+  const { userEmail, userAvatar, handleLogout } = useContext(CredentialsContext);
 
   return (
     <div
@@ -25,7 +25,7 @@ const Header = () => {
         <button
           className="button log"
           style={{ display: focus ? "none" : "block" }}
-          onClick={startLogout}
+          onClick={() => startLogout(handleLogout)}
         >
           Sign Out
         </button>

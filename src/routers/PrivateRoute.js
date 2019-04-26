@@ -1,12 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Route, Redirect } from "react-router-dom";
 import CredentialsContext from "../context/credentials-context";
 
-export const PublicRoute = ({ component: Component, ...rest }) => {
+export const PrivateRoute = ({ component: Component, ...rest }) => {
   const { uid } = useContext(CredentialsContext);
-  return;
-  <Route
+  return (<Route
     {...rest}
     component={props => (uid ? <Component {...props} /> : <Redirect to="/" />)}
-  />;
+  />);
 };
