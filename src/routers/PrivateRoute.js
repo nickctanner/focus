@@ -3,9 +3,9 @@ import { Route, Redirect } from "react-router-dom";
 import CredentialsContext from "../context/credentials-context";
 
 export const PrivateRoute = ({ component: Component, ...rest }) => {
-  const { uid } = useContext(CredentialsContext);
+  const { isAutenticated } = useContext(CredentialsContext);
   return (<Route
     {...rest}
-    component={props => (uid ? <Component {...props} /> : <Redirect to="/" />)}
+    component={props => (isAutenticated ? <Component {...props} /> : <Redirect to="/" />)}
   />);
 };

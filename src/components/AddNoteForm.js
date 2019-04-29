@@ -5,11 +5,11 @@ import NotesContext from "../context/notes-context";
 import { database } from "firebase";
 
 const AddNoteForm = () => {
+  const { dispatch, focus } = useContext(NotesContext);
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
   const [id, setId] = useState(uuid());
   const [isComplete, setIsComplete] = useState(false);
-  const { dispatch, focus } = useContext(NotesContext);
 
   const addNote = e => {
     e.preventDefault();
@@ -19,18 +19,17 @@ const AddNoteForm = () => {
       text,
       id,
       isComplete
-    }
+    };
 
     if (title) {
       dispatch({
         type: "ADD_NOTE",
-        title,
-        text,
-        id,
-        isComplete
+        ...note
       });
 
-      database().ref('notes').update(note);
+      database()
+        .ref("notes")
+        .update(note);
       setTitle("");
       setId(uuid());
       setIsComplete(false);

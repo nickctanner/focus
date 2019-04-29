@@ -10,9 +10,9 @@ import { toggleComplete } from "../actions/notes";
 import { database } from "../firebase/firebase";
 
 const Note = ({ note }) => {
+  const { dispatch, focus } = useContext(NotesContext);
   const [editNote, setEditNote] = useState(false);
   const [noteTextView, setNoteTextView] = useState(false);
-  const { dispatch, focus } = useContext(NotesContext);
 
   const toggleTitleEdit = () => {
     setEditNote(!editNote);
