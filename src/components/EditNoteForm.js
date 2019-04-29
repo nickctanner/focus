@@ -16,8 +16,13 @@ const EditNoteForm = ({ toggleTitleEdit }) => {
         title,
         id
       });
-    }
-    toggleTitleEdit();
+
+      database
+        .ref(`users/${uid}/notes/${id}`)
+        .update(note)
+        .then(() => {
+            toggleTitleEdit();
+        });
   };
 
   return (

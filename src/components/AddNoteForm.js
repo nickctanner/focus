@@ -1,39 +1,49 @@
 import React, { useState, useContext } from "react";
-import uuid from "uuid";
+// import uuid from "uuid";
 
 import NotesContext from "../context/notes-context";
+import CredentialsContext from "../context/credentials-context";
 import { database } from "firebase";
 
 const AddNoteForm = () => {
   const { dispatch, focus } = useContext(NotesContext);
+  const { uid } = useContext(CredentialsContext);
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
-  const [id, setId] = useState(uuid());
+  const [id, setId] = useState('');
   const [isComplete, setIsComplete] = useState(false);
 
+
+// mark as action
   const addNote = e => {
     e.preventDefault();
 
     const note = {
       title,
       text,
-      id,
       isComplete
     };
 
     if (title) {
-      dispatch({
-        type: "ADD_NOTE",
-        ...note
-      });
+      // dispatch({
+      //   type: "ADD_NOTE",
+      //   ...note
+      // });
 
-      database()
-        .ref("notes")
-        .update(note);
-      setTitle("");
-      setId(uuid());
-      setIsComplete(false);
-      setText("");
+      return database()
+        .ref(`users/${uid}/notes`)
+        .push(note)
+        .then(ref => {
+          setId({
+            id: ref.key,
+            ...note
+          });
+
+          dispatch({
+            type: "ADD_NOTE",
+            ...note
+          });
+        });
     }
   };
 

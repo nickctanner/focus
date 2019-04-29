@@ -13,7 +13,7 @@ const App = () => {
 
   useEffect(() => {
     // const notes = JSON.parse(localStorage.getItem("notes"));
-    database.ref('users/${uid}/notes').once('value').then(snapshot => {
+    database.ref(`users/${uid}/notes`).once('value').then(snapshot => {
       const notes = snapshot.val();
       console.log(notes);
 
