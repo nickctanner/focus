@@ -7,6 +7,7 @@ import NoteHandlerButtons from "./NoteHandlerButtons";
 import NotesContext from "../context/notes-context";
 import SingleNoteContext from "../context/single-note-context";
 import { toggleComplete } from "../actions/notes";
+import { database } from "../firebase/firebase";
 
 const Note = ({ note }) => {
   const [editNote, setEditNote] = useState(false);
@@ -23,6 +24,9 @@ const Note = ({ note }) => {
 
   const handleMarkCompleted = () => {
     dispatch(toggleComplete(note.isComplete, note.id));
+    const id = note.id;
+    const isComplete = note.isComplete;
+    database.ref(`notes/${id}/isComplete`).update(isComplete);
     setTimeout(() => {
       dispatch({ type: "MOVE_COMPLETED" });
     }, 500);
@@ -49,8 +53,8 @@ const Note = ({ note }) => {
               {editNote ? (
                 <EditNoteForm toggleTitleEdit={toggleTitleEdit} />
               ) : (
-                <NoteTitle toggleTitleEdit={toggleTitleEdit} />
-              )}
+                  <NoteTitle toggleTitleEdit={toggleTitleEdit} />
+                )}
             </div>
             <NoteHandlerButtons
               toggleNoteTextView={toggleNoteTextView}
@@ -58,8 +62,8 @@ const Note = ({ note }) => {
             />
           </div>
         ) : (
-          <NoteText toggleNoteTextView={toggleNoteTextView} />
-        )}
+            <NoteText toggleNoteTextView={toggleNoteTextView} />
+          )}
       </div>
     </SingleNoteContext.Provider>
   );

@@ -37,6 +37,15 @@ body {
   color: #1a283f;
 }
 
+.loader {
+  background-color: lightblue;
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  width: 100vw;
+}
+
 .header {
   background-color: #1a283f;
   box-shadow: 2px 1px 4px #1a283f;
@@ -56,8 +65,9 @@ body {
   body {
     zoom: 75%;
   }
-  .header button {
-    border: none;
+
+  .header span {
+    display: none;
   }
 }
 
@@ -79,20 +89,20 @@ body {
 .header-profile {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
   font-size: 0.8rem;
   margin-top: 10px;
+  zoom: 85%;
 }
 
 .header button {
   align-self: flex-end;
-  width: 80%;
+  min-width: 60px;
 }
 
 .credentials {
-  align-items: center;
-  vertical-align: center;
   display: flex;
+  align-items: center;
   margin: 0 auto 15px 0;
 }
 
@@ -103,10 +113,10 @@ body {
 .header img {
   background-color: white;
   border-radius: 50%;
-  height: 25px;
-  padding: 2px;
-  width: 25px;
-  align-self: center;
+  height: 30px;
+  padding: 1px;
+  width: 30px;
+  margin-left: 15px;
 }
 
 #logo-header {

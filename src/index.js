@@ -3,6 +3,8 @@ import ReactDOM from "react-dom";
 import { firebase } from "./firebase/firebase";
 import AppRouter, { history } from "./routers/AppRouter";
 
+import LoadingPage from './components/LoadingPage';
+
 import "./styles.css";
 
 let hasRendered = false;
@@ -12,6 +14,8 @@ const renderApp = () => {
     hasRendered = true;
   }
 };
+
+ReactDOM.render(<LoadingPage />, document.getElementById("root"));
 
 firebase.auth().onAuthStateChanged(user => {
   if (user) {

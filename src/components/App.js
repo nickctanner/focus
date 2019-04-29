@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useReducer } from "react";
-// import { database } from "firebase";
+import { database } from "../firebase/firebase";
 
 import notesReducer from "../reducers/notes";
 import NotesContext from "../context/notes-context";
@@ -10,18 +10,26 @@ const App = () => {
   const [focus, setFocus] = useState(false);
 
   useEffect(() => {
-    const notes = JSON.parse(localStorage.getItem("notes"));
+    // const notes = JSON.parse(localStorage.getItem("notes"));
+    database.ref('notes').once('value').then(snapshot => {
+      const notes = snapshot.val();
+      console.log(notes);
 
-    if (notes) {
-      dispatch({ type: "POPULATE_NOTES", notes });
-    }
+      if (notes) {
+        dispatch({ type: "POPULATE_NOTES", notes });
+      }
+    })
+
     setFocus(false);
   }, []);
 
-  useEffect(() => {
-    localStorage.setItem("notes", JSON.stringify(notes));
-    // database.ref("focus").set(notes);
-  }, [notes]);
+  // useEffect(() => {
+  //   if (notes !== []) {
+  //     database.ref('notes').set(notes);
+  //   }
+
+  //   // localStorage.setItem("notes", JSON.stringify(notes));
+  // }, [notes]);
 
   const toggleFocus = () => {
     setFocus(!focus);

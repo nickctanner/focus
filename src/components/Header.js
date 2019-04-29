@@ -19,8 +19,8 @@ const Header = () => {
       </div>
       <div className="header-profile">
         <div className="credentials">
-          <img src={userAvatar || '/images/user.png'} alt="User's Avatar" />
           <span>{userEmail || 'Hello User'}</span>
+          <img src={userAvatar || '/images/user.png'} alt="User's Avatar" />
         </div>
         <button
           className="button log"

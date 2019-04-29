@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import uuid from "uuid";
 
 import NotesContext from "../context/notes-context";
+import { database } from "firebase";
 
 const AddNoteForm = () => {
   const [title, setTitle] = useState("");
@@ -12,6 +13,14 @@ const AddNoteForm = () => {
 
   const addNote = e => {
     e.preventDefault();
+
+    const note = {
+      title,
+      text,
+      id,
+      isComplete
+    }
+
     if (title) {
       dispatch({
         type: "ADD_NOTE",
@@ -20,6 +29,8 @@ const AddNoteForm = () => {
         id,
         isComplete
       });
+
+      database().ref('notes').update(note);
       setTitle("");
       setId(uuid());
       setIsComplete(false);
