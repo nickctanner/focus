@@ -6,6 +6,7 @@ import NoteText from "./NoteText";
 import NoteHandlerButtons from "./NoteHandlerButtons";
 import NotesContext from "../context/notes-context";
 import SingleNoteContext from "../context/single-note-context";
+import CredentialsContext from '../context/credentials-context';
 import { toggleComplete } from "../actions/notes";
 import { database } from "../firebase/firebase";
 
@@ -13,6 +14,7 @@ const Note = ({ note }) => {
   const [editNote, setEditNote] = useState(false);
   const [noteTextView, setNoteTextView] = useState(false);
   const { dispatch, focus } = useContext(NotesContext);
+  const { uid } = useContext(CredentialsContext);
 
   const toggleTitleEdit = () => {
     setEditNote(!editNote);
@@ -26,7 +28,12 @@ const Note = ({ note }) => {
     dispatch(toggleComplete(note.isComplete, note.id));
     const id = note.id;
     const isComplete = note.isComplete;
-    database.ref(`notes/${id}/isComplete`).update(isComplete);
+    const updates = {
+      ...note,
+      isComplete
+    };
+
+    database.ref(`users/${uid}/notes/${id}/`).update(updates);
     setTimeout(() => {
       dispatch({ type: "MOVE_COMPLETED" });
     }, 500);

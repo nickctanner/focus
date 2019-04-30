@@ -16,30 +16,23 @@ const AppRouter = () => {
   const [userEmail, setUserEmail] = useState("");
   const [userAvatar, setUserAvatar] = useState("");
   const [uid, setUid] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
     const user = firebase.auth().currentUser;
     if (user) {
-      setUid(!!user.uid);
+      setUid(user.uid);
       setUserEmail(user.email);
       setUserAvatar(user.photoURL);
+      setIsAuthenticated(true);
     }
-    console.log(uid);
+    console.log(isAuthenticated);
   }, [uid])
-
-  const handleLogin = () => {
-    setUid(true);
-  }
-
-  const handleLogout = () => {
-    setUid(false);
-  }
-
 
   return (
     <Router history={history}>
       <CredentialsContext.Provider
-        value={{ userEmail, userAvatar, uid, handleLogout, handleLogin }}
+        value={{ userEmail, userAvatar, uid, isAuthenticated }}
       >
         <div>
           <Switch>

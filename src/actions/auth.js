@@ -1,21 +1,20 @@
 import { firebase, googleAuthProvider } from "../firebase/firebase";
 
-export const startLogin = async fn => {
-  try {
-    await firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION);
-    await firebase
-      .auth()
-      .signInWithPopup(googleAuthProvider);
-    fn();
-  }
-  catch (error) {
-    console.log(error.code, error.message);
-  }
-};
+export const startLogin = () =>
 
-export const startLogout = async fn => {
-  await firebase.auth().signOut();
+  // await firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION);
+  firebase
+    .auth()
+    .signInWithPopup(googleAuthProvider)
+
+
+    .catch(error => {
+      console.log(error.code, error.message);
+    });
+
+
+export const startLogout = () => {
   setTimeout(() => {
-    fn();
+    return firebase.auth().signOut();
   }, 1000);
 };

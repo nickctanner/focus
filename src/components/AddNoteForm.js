@@ -2,45 +2,51 @@ import React, { useState, useContext } from "react";
 import uuid from "uuid";
 
 import NotesContext from "../context/notes-context";
+import CredentialsContext from "../context/credentials-context";
 import { database } from "firebase";
 
 const AddNoteForm = () => {
+  const { dispatch, focus } = useContext(NotesContext);
+  const { uid } = useContext(CredentialsContext);
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
-  const [id, setId] = useState(uuid());
+  const [id, setId] = useState('');
   const [isComplete, setIsComplete] = useState(false);
-  const { dispatch, focus } = useContext(NotesContext);
 
-  const addNote = e => {
+  const addNote = note => ({
+    type: "ADD_NOTE",
+    note
+  })
+
+  // mark as action
+  const startAddNote = e => {
     e.preventDefault();
 
     const note = {
       title,
       text,
-      id,
       isComplete
-    }
+    };
 
     if (title) {
-      dispatch({
-        type: "ADD_NOTE",
-        title,
-        text,
-        id,
-        isComplete
-      });
+      database()
+        .ref(`users/${uid}/notes`)
+        .push(note)
+        .then(ref => {
+          dispatch(addNote({
+            id: ref.key,
+            ...note
+          }));
+        });
 
-      database().ref('notes').update(note);
       setTitle("");
-      setId(uuid());
-      setIsComplete(false);
       setText("");
     }
   };
 
   return (
     <form
-      onSubmit={addNote}
+      onSubmit={startAddNote}
       style={{ visibility: focus ? "hidden" : "visible" }}
     >
       <div className="add-note">

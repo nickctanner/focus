@@ -4,24 +4,11 @@ const notesReducer = (state = [], action) => {
       return action.notes;
     case "ADD_NOTE":
       if (state.length > 0) {
-        return [
-          {
-            title: action.title,
-            id: action.id,
-            isComplete: action.isComplete,
-            text: action.text
-          },
-          ...state
-        ];
+        return [action.note, ...state];
       } else {
         return [
           ...state,
-          {
-            title: action.title,
-            id: action.id,
-            isComplete: action.isComplete,
-            text: action.text
-          }
+          action.note
         ];
       }
 
@@ -37,9 +24,9 @@ const notesReducer = (state = [], action) => {
       return state.map(note =>
         note.id === action.id
           ? {
-              ...note,
-              text: action.text
-            }
+            ...note,
+            text: action.text
+          }
           : note
       );
     case "EDIT_NOTE":
