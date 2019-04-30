@@ -19,7 +19,7 @@ const Header = () => {
       </div>
       <div className="header-profile">
         <div className="credentials">
-          <span>{userEmail || 'Hello User'}</span>
+          <span>{userEmail}</span>
           <img src={userAvatar || '/images/user.png'} alt="User's Avatar" />
         </div>
         <button

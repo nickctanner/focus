@@ -8,8 +8,6 @@ const EditNoteForm = ({ toggleTitleEdit }) => {
   const { note } = useContext(SingleNoteContext);
   const [title, setTitle] = useState("");
 
-  // Dispatch actions to put into separate folder
-
   const editTitle = (e, id) => {
     e.preventDefault();
     if (title) {
@@ -18,8 +16,13 @@ const EditNoteForm = ({ toggleTitleEdit }) => {
         title,
         id
       });
-    }
-    toggleTitleEdit();
+
+      database
+        .ref(`users/${uid}/notes/${id}`)
+        .update(note)
+        .then(() => {
+            toggleTitleEdit();
+        });
   };
 
   return (

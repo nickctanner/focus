@@ -11,6 +11,8 @@ import { toggleComplete } from "../actions/notes";
 import { database } from "../firebase/firebase";
 
 const Note = ({ note }) => {
+  const { dispatch, focus } = useContext(NotesContext);
+  const { uid } = useContext(CredentialsContext);
   const [editNote, setEditNote] = useState(false);
   const [noteTextView, setNoteTextView] = useState(false);
   const { dispatch, focus } = useContext(NotesContext);
@@ -24,6 +26,7 @@ const Note = ({ note }) => {
     setNoteTextView(!noteTextView);
   };
 
+  // mark as action
   const handleMarkCompleted = () => {
     dispatch(toggleComplete(note.isComplete, note.id));
     const id = note.id;

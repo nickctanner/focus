@@ -4,9 +4,9 @@ import NotesContext from "../context/notes-context";
 import SingleNoteContext from "../context/single-note-context";
 
 const NoteTextForm = () => {
+  const { note } = useContext(SingleNoteContext);
   const [text, setText] = useState("");
   const { dispatch } = useContext(NotesContext);
-  const { note } = useContext(SingleNoteContext);
 
   const editNoteText = (e, id) => {
     e.preventDefault();
