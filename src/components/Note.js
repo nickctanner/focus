@@ -1,12 +1,12 @@
 import React, { useState, useContext } from "react";
 
+import NotesContext from "../context/notes-context";
+import SingleNoteContext from "../context/single-note-context";
+import CredentialsContext from "../context/credentials-context";
 import EditNoteForm from "./EditNoteForm";
 import NoteTitle from "./NoteTitle";
 import NoteText from "./NoteText";
 import NoteHandlerButtons from "./NoteHandlerButtons";
-import NotesContext from "../context/notes-context";
-import SingleNoteContext from "../context/single-note-context";
-import CredentialsContext from '../context/credentials-context';
 import { toggleComplete } from "../actions/notes";
 import { database } from "../firebase/firebase";
 
@@ -26,20 +26,21 @@ const Note = ({ note }) => {
     setNoteTextView(!noteTextView);
   };
 
-  // mark as action
-  const handleMarkCompleted = () => {
-    dispatch(toggleComplete(note.isComplete, note.id));
-    const id = note.id;
-    const isComplete = note.isComplete;
+  const handleMarkCompleted = (isComplete, id) => {
+    dispatch(toggleComplete(isComplete, id));
     const updates = {
       ...note,
       isComplete
     };
 
-    database.ref(`users/${uid}/notes/${id}/`).update(updates);
-    setTimeout(() => {
-      dispatch({ type: "MOVE_COMPLETED" });
-    }, 500);
+    database
+      .ref(`users/${uid}/notes/${id}/`)
+      .update(updates)
+      .then(() => {
+        setTimeout(() => {
+          dispatch({ type: "MOVE_COMPLETED" });
+        }, 500);
+      });
   };
 
   return (
@@ -63,8 +64,8 @@ const Note = ({ note }) => {
               {editNote ? (
                 <EditNoteForm toggleTitleEdit={toggleTitleEdit} />
               ) : (
-                  <NoteTitle toggleTitleEdit={toggleTitleEdit} />
-                )}
+                <NoteTitle toggleTitleEdit={toggleTitleEdit} />
+              )}
             </div>
             <NoteHandlerButtons
               toggleNoteTextView={toggleNoteTextView}
@@ -72,8 +73,8 @@ const Note = ({ note }) => {
             />
           </div>
         ) : (
-            <NoteText toggleNoteTextView={toggleNoteTextView} />
-          )}
+          <NoteText toggleNoteTextView={toggleNoteTextView} />
+        )}
       </div>
     </SingleNoteContext.Provider>
   );

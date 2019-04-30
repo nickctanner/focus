@@ -21,12 +21,9 @@ const App = () => {
           ...childSnapshot.val()
         });
       });
-      console.log(notes);
-
 
       dispatch({ type: "POPULATE_NOTES", notes });
-
-    })
+    });
 
     setFocus(false);
   }, []);

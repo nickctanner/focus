@@ -1,16 +1,26 @@
 import React, { useContext } from "react";
 
 import NotesContext from "../context/notes-context";
+import CredentialsContext from "../context/credentials-context";
 
 const FilterButtons = () => {
   const { dispatch, focus, toggleFocus } = useContext(NotesContext);
+  const { uid } = useContext(CredentialsContext);
 
   const deleteAll = () => {
     const confirm = window.confirm(
       "Are you sure you want to delete all your notes?"
     );
+
     if (confirm) {
-      dispatch({ type: "DELETE_ALL" });
+      const notes = [];
+
+      database
+        .ref(`users/${uid}/notes/`)
+        .set(notes)
+        .then(() => {
+          dispatch({ type: "DELETE_ALL" });
+        });
     }
   };
 

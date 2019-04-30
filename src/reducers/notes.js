@@ -13,7 +13,7 @@ const notesReducer = (state = [], action) => {
       }
 
     case "REMOVE_NOTE":
-      return state.filter(note => note.title !== action.title);
+      return state.filter(note => note.id !== action.id);
     case "TOGGLE_COMPLETE":
       return state.map(note =>
         note.id === action.id

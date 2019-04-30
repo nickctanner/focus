@@ -2,27 +2,39 @@ import React, { useState, useContext } from "react";
 
 import NotesContext from "../context/notes-context";
 import SingleNoteContext from "../context/single-note-context";
+import CredentialsContext from '../context/credentials-context';
 
 const EditNoteForm = ({ toggleTitleEdit }) => {
   const { dispatch } = useContext(NotesContext);
   const { note } = useContext(SingleNoteContext);
+  const { uid } = useContext(CredentialsContext);
   const [title, setTitle] = useState("");
 
   const editTitle = (e, id) => {
     e.preventDefault();
     if (title) {
-      dispatch({
-        type: "EDIT_NOTE",
-        title,
-        id
-      });
+      // dispatch({
+      //   type: "EDIT_NOTE",
+      //   title,
+      //   id
+      // });
+      const updates = {
+        ...note,
+        title
+      }
 
       database
         .ref(`users/${uid}/notes/${id}`)
-        .update(note)
+        .update(updates)
         .then(() => {
-            toggleTitleEdit();
+          dispatch({
+            type: "EDIT_NOTE",
+            title,
+            id
+          });
+          toggleTitleEdit();
         });
+    }
   };
 
   return (

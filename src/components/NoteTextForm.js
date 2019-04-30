@@ -2,20 +2,32 @@ import React, { useState, useContext } from "react";
 
 import NotesContext from "../context/notes-context";
 import SingleNoteContext from "../context/single-note-context";
+import CredentialsContext from "../context/credentials-context";
 
 const NoteTextForm = () => {
   const { note } = useContext(SingleNoteContext);
-  const [text, setText] = useState("");
   const { dispatch } = useContext(NotesContext);
+  const { uid } = useContext(CredentialsContext);
+  const [text, setText] = useState("");
 
   const editNoteText = (e, id) => {
     e.preventDefault();
     if (text) {
-      dispatch({
-        type: "ADD_TEXT",
-        text,
-        id
-      });
+      const updates = {
+        ...note,
+        text
+      };
+
+      database
+        .ref(`users/${uid}/notes/${id}`)
+        .update(updates)
+        .then(() => {
+          dispatch({
+            type: "ADD_TEXT",
+            text,
+            id
+          });
+        });
     }
   };
 
