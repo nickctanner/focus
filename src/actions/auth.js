@@ -9,7 +9,7 @@ export const startLogin = () =>
         .auth()
         .signInWithPopup(googleAuthProvider)
         .then(() => {
-          console.log('signed in');
+          console.log("Signing in...");
         });
     })
     .catch(error => {

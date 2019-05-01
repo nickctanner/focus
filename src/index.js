@@ -11,3 +11,5 @@ import './styles.css';
 // ReactDOM.render(<LoadingPage />, document.getElementById('root'));
 
 ReactDOM.render(<AppRouter />, document.getElementById('root'));
+
+// react-page-loading (module)

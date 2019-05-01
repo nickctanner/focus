@@ -1,9 +1,9 @@
 import React, { useState, useContext } from 'react';
-// import uuid from "uuid";
+import { database } from 'firebase';
 
 import NotesContext from '../context/notes-context';
 import CredentialsContext from '../context/credentials-context';
-import { database } from 'firebase';
+import { addNote } from '../actions/notes';
 
 const AddNoteForm = () => {
   const { dispatch, focus } = useContext(NotesContext);
@@ -12,15 +12,8 @@ const AddNoteForm = () => {
   const [text, setText] = useState('');
   const [isComplete, setIsComplete] = useState(false);
 
-  const addNote = note => ({
-    type: 'ADD_NOTE',
-    note,
-  });
-
-  // mark as action
   const startAddNote = e => {
     e.preventDefault();
-
     const note = {
       title,
       text,
