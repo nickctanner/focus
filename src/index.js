@@ -1,31 +1,13 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { firebase } from "./firebase/firebase";
-import AppRouter, { history } from "./routers/AppRouter";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import AppRouter from './routers/AppRouter';
 
-import LoadingPage from './components/LoadingPage';
+// import LoadingPage from './components/LoadingPage';
 
-import "./styles.css";
+import './styles.css';
 
-let hasRendered = false;
-const renderApp = () => {
-  if (!hasRendered) {
-    ReactDOM.render(<AppRouter />, document.getElementById("root"));
-    hasRendered = true;
-  }
-};
+// TODO: Add loading page --> not sure where yet
 
-ReactDOM.render(<LoadingPage />, document.getElementById("root"));
+// ReactDOM.render(<LoadingPage />, document.getElementById('root'));
 
-firebase.auth().onAuthStateChanged(user => {
-  if (user) {
-    renderApp();
-    if (history.location.pathname === "/") {
-      history.push("/notes");
-    }
-  } else {
-    renderApp();
-    history.push("/");
-    console.log('logged out');
-  }
-});
+ReactDOM.render(<AppRouter />, document.getElementById('root'));

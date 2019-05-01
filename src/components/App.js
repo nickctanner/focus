@@ -1,10 +1,10 @@
-import React, { useState, useContext, useEffect, useReducer } from "react";
-import { database } from "../firebase/firebase";
+import React, { useState, useContext, useEffect, useReducer } from 'react';
+import { database } from '../firebase/firebase';
 
-import notesReducer from "../reducers/notes";
-import NotesContext from "../context/notes-context";
+import notesReducer from '../reducers/notes';
+import NotesContext from '../context/notes-context';
 import CredentialsContext from '../context/credentials-context';
-import NotesPage from "./NotesPage";
+import NotesPage from './NotesPage';
 
 const App = () => {
   const [notes, dispatch] = useReducer(notesReducer, []);
@@ -12,18 +12,21 @@ const App = () => {
   const [focus, setFocus] = useState(false);
 
   useEffect(() => {
-    database.ref(`users/${uid}/notes`).once('value').then(snapshot => {
-      const notes = [];
+    database
+      .ref(`users/${uid}/notes`)
+      .once('value')
+      .then(snapshot => {
+        const notes = [];
 
-      snapshot.forEach(childSnapshot => {
-        notes.push({
-          id: childSnapshot.key,
-          ...childSnapshot.val()
+        snapshot.forEach(childSnapshot => {
+          notes.push({
+            id: childSnapshot.key,
+            ...childSnapshot.val(),
+          });
         });
-      });
 
-      dispatch({ type: "POPULATE_NOTES", notes });
-    });
+        dispatch({ type: 'POPULATE_NOTES', notes });
+      });
 
     setFocus(false);
   }, []);
@@ -38,7 +41,7 @@ const App = () => {
         notes,
         dispatch,
         focus,
-        toggleFocus
+        toggleFocus,
       }}
     >
       <NotesPage />

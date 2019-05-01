@@ -1,5 +1,5 @@
 export const toggleComplete = (isComplete, id) => ({
-  type: "TOGGLE_COMPLETE",
+  type: 'TOGGLE_COMPLETE',
   isComplete,
-  id
+  id,
 });
