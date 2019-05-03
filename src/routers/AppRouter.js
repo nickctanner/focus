@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { firebase } from '../firebase/firebase';
 import { createBrowserHistory } from 'history';
 
 import CredentialsContext from '../context/credentials-context';
 import LoginPage from '../components/LoginPage';
 import NotFoundPage from '../components/NotFoundPage';
+import LoadingPage from '../components/LoadingPage';
 import App from '../components/App';
 import { PublicRoute } from './PublicRoute';
 import { PrivateRoute } from './PrivateRoute';
@@ -17,27 +18,37 @@ const AppRouter = () => {
   const [userAvatar, setUserAvatar] = useState('');
   const [uid, setUid] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [hasRendered, setHasRendered] = useState(false);
+
+  const renderApp = () => {
+    if (!hasRendered) {
+      setHasRendered(true);
+    }
+  };
 
   useEffect(() => {
-    return firebase.auth().onAuthStateChanged(user => {
+    const auth = firebase.auth().onAuthStateChanged(user => {
       if (user) {
         setUid(user.uid);
         setUserEmail(user.email);
         setUserAvatar(user.photoURL);
         setIsAuthenticated(true);
-
-        if (history.location.pathname === '/') {
-          history.push('/notes');
-          console.log(isAuthenticated);
-        }
+        history.push('/notes');
+        renderApp();
       } else {
         setIsAuthenticated(false);
         history.push('/');
+        renderApp();
+        console.log(isAuthenticated);
       }
     });
-  }, []);
 
-  return (
+    return () => {
+      auth();
+    };
+  });
+
+  return hasRendered ? (
     <Router history={history}>
       <CredentialsContext.Provider
         value={{ userEmail, userAvatar, uid, isAuthenticated }}
@@ -51,6 +62,8 @@ const AppRouter = () => {
         </div>
       </CredentialsContext.Provider>
     </Router>
+  ) : (
+    <LoadingPage />
   );
 };
 

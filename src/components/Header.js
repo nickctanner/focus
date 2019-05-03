@@ -25,7 +25,7 @@ const Header = () => {
         <button
           className='button log'
           style={{ display: focus ? 'none' : 'block' }}
-          onClick={() => startLogout()}
+          onClick={startLogout}
         >
           Sign Out
         </button>

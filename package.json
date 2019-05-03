@@ -7,11 +7,11 @@
   "license": "MIT",
   "dependencies": {
     "firebase": "5.9.4",
+    "npm": "^6.9.0",
     "react": "16.8.3",
     "react-dom": "16.8.3",
     "react-router-dom": "5.0.0",
-    "react-scripts": "2.1.8",
-    "uuid": "3.3.2"
+    "react-scripts": "^3.0.0"
   },
   "devDependencies": {
     "typescript": "3.3.3"
@@ -29,5 +29,3 @@
     "not op_mini all"
   ]
 }
-
-/* npm uninstall <name> --save also removes it from dependencies in package.json */
