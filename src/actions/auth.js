@@ -1,12 +1,10 @@
-import { firebase, googleAuthProvider } from '../firebase/firebase';
+import { firebase, googleAuthProvider } from "../firebase/firebase";
 
 export const startLogin = () =>
+// Removed session limitation
   firebase
     .auth()
-    .setPersistence(firebase.auth.Auth.Persistence.SESSION)
-    .then(() => {
-      firebase.auth().signInWithPopup(googleAuthProvider);
-    })
+    .signInWithPopup(googleAuthProvider)
     .catch(error => {
       console.log(error.code, error.message);
     });
