@@ -1,19 +1,14 @@
-import { firebase, googleAuthProvider } from "../firebase/firebase";
+import { firebase, googleAuthProvider } from '../firebase/firebase';
 
-export const startLogin = (fn) => {
-  return firebase
+export const startLogin = () =>
+  firebase
     .auth()
-    .signInWithPopup(googleAuthProvider).then((result) => {
-      const user = {
-        email: result.user.email,
-        avatar: result.user.photoURL
-      }
-      fn(user);
-    }).catch((error) => {
+    .signInWithPopup(googleAuthProvider)
+    .catch(error => {
       console.log(error.code, error.message);
-    })
-};
+    });
 
-export const startLogout = () => {
-  return firebase.auth().signOut();
-};
+export const startLogout = () =>
+  setTimeout(() => {
+    firebase.auth().signOut();
+  }, 500);

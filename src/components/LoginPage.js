@@ -4,8 +4,7 @@ import CredentialsContext from "../context/credentials-context";
 import { startLogin } from "../actions/auth";
 
 const LoginPage = () => {
-  const { handleSetUserDisplay } = useContext(CredentialsContext);
-
+  const { handleLogin } = useContext(CredentialsContext);
   return (
     <div className="login-box">
       <div className="login-box-inner">
@@ -13,7 +12,7 @@ const LoginPage = () => {
         <p>Simple. Clean. Done.</p>
         <button
           className="button log"
-          onClick={() => startLogin(handleSetUserDisplay)}
+          onClick={() => startLogin(handleLogin)}
         >
           Continue with Google
         </button>

@@ -1,14 +1,14 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const NotFoundPage = () => {
   return (
-    <div style={{ textAlign: "center" }}>
+    <div style={{ textAlign: 'center' }}>
       <h1>): Oops, page not found :(</h1>
-      <Link to={"/notes"}>
+      <Link to={'/notes'}>
         <button
-          className="button"
-          style={{ backgroundColor: "black", padding: "5px" }}
+          className='button'
+          style={{ backgroundColor: 'black', padding: '5px' }}
         >
           Back to notes
         </button>

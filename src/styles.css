@@ -1,4 +1,7 @@
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:300");
+/* // import normalize.css?
+// Organize with one folder per component? */
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300');
 
 * {
   box-sizing: border-box;
@@ -13,7 +16,7 @@
   display: flex;
   height: 100vh;
   justify-content: center;
-  width: 100vw;
+  width: 100%;
 }
 
 .login-box-inner {
@@ -30,11 +33,31 @@
   margin-bottom: 4rem;
 }
 
+@media (min-width: 1400px) {
+  .login-box {
+    zoom: 120%;
+  }
+}
+
 body {
   background-color: lightblue;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   margin: auto;
   color: #1a283f;
+}
+
+.loader {
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  width: 100vw;
+}
+
+@media (max-width: 480px) {
+  .loader {
+    width: 100%;
+  }
 }
 
 .header {
@@ -56,8 +79,9 @@ body {
   body {
     zoom: 75%;
   }
-  .header button {
-    border: none;
+
+  .header span {
+    display: none;
   }
 }
 
@@ -79,20 +103,20 @@ body {
 .header-profile {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
   font-size: 0.8rem;
   margin-top: 10px;
+  zoom: 85%;
 }
 
 .header button {
   align-self: flex-end;
-  width: 80%;
+  min-width: 60px;
 }
 
 .credentials {
-  align-items: center;
-  vertical-align: center;
   display: flex;
+  align-items: center;
   margin: 0 auto 15px 0;
 }
 
@@ -103,10 +127,10 @@ body {
 .header img {
   background-color: white;
   border-radius: 50%;
-  height: 25px;
-  padding: 2px;
-  width: 25px;
-  align-self: center;
+  height: 30px;
+  padding: 1px;
+  width: 30px;
+  margin-left: 15px;
 }
 
 #logo-header {
@@ -159,6 +183,18 @@ body {
   .add-note input {
     font-size: 1.1rem;
   }
+}
+
+.button {
+  color: white;
+  border: none;
+  border-radius: 3px;
+  outline: none;
+  transition-duration: 0.4s;
+}
+
+.button:hover {
+  cursor: pointer;
 }
 
 #add-btn,
@@ -313,20 +349,6 @@ body {
 
 .fa-check-square {
   opacity: 1;
-}
-
-.button {
-  color: white;
-  border: none;
-  border-radius: 3px;
-  outline: none;
-  transition-duration: 0.4s;
-}
-
-.button:hover,
-#add-btn:hover,
-#note-title:hover {
-  cursor: pointer;
 }
 
 .log {
