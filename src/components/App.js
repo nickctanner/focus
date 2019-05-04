@@ -27,7 +27,7 @@ const App = () => {
 
         dispatch({ type: 'POPULATE_NOTES', notes });
       });
-  });
+  }, [uid]);
 
   const toggleFocus = () => {
     setFocus(!focus);

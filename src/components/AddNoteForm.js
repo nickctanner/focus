@@ -10,10 +10,12 @@ const AddNoteForm = () => {
   const { uid } = useContext(CredentialsContext);
   const [title, setTitle] = useState('');
   const [text, setText] = useState('');
-  const [isComplete, setIsComplete] = useState(false);
+  const [isComplete, setIsComplete] = useState(null);
 
   const startAddNote = e => {
     e.preventDefault();
+    setIsComplete(false);
+
     const note = {
       title,
       text,

@@ -1,21 +1,19 @@
-import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { firebase } from "../firebase/firebase";
-import { createBrowserHistory } from "history";
+import React, { useState, useEffect } from 'react';
+import { Router, Route, Switch, Redirect } from 'react-router-dom';
+import { firebase } from '../firebase/firebase';
+import { createBrowserHistory } from 'history';
 
-import CredentialsContext from "../context/credentials-context";
-import LoginPage from "../components/LoginPage";
-import NotFoundPage from "../components/NotFoundPage";
-import LoadingPage from "../components/LoadingPage";
-import App from "../components/App";
-import { PublicRoute } from "./PublicRoute";
-import { PrivateRoute } from "./PrivateRoute";
+import CredentialsContext from '../context/credentials-context';
+import LoginPage from '../components/LoginPage';
+import NotFoundPage from '../components/NotFoundPage';
+import LoadingPage from '../components/LoadingPage';
+import App from '../components/App';
 
 export const history = createBrowserHistory();
 
 const AppRouter = () => {
-  const [userEmail, setUserEmail] = useState("");
-  const [userAvatar, setUserAvatar] = useState("");
+  const [userEmail, setUserEmail] = useState('');
+  const [userAvatar, setUserAvatar] = useState('');
   const [uid, setUid] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [hasRendered, setHasRendered] = useState(false);
@@ -28,7 +26,7 @@ const AppRouter = () => {
 
   useEffect(() => {
     let subscribed = true;
-    // return firebase...?
+
     firebase.auth().onAuthStateChanged(user => {
       if (subscribed) {
         if (user) {
@@ -36,20 +34,21 @@ const AppRouter = () => {
           setUserEmail(user.email);
           setUserAvatar(user.photoURL);
           setIsAuthenticated(true);
-          history.push("/notes");
+          history.push('/notes');
           renderApp();
+          return <Redirect to='/notes' />;
         } else {
           setIsAuthenticated(false);
-          history.push("/");
+          history.push('/');
           renderApp();
-          console.log(isAuthenticated);
+          return <Redirect to='/' />;
         }
       }
     });
 
     return () => (subscribed = false);
     // Dependent on hasRendered?
-  }, []);
+  });
 
   return hasRendered ? (
     <Router history={history}>
@@ -58,8 +57,8 @@ const AppRouter = () => {
       >
         <div>
           <Switch>
-            <PublicRoute exact path="/" component={LoginPage} />
-            <PrivateRoute exact path="/notes" component={App} />
+            <Route exact path='/' component={LoginPage} />
+            <Route exact path='/notes' component={App} />
             <Route component={NotFoundPage} />
           </Switch>
         </div>

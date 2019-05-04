@@ -1,7 +1,6 @@
-import { firebase, googleAuthProvider } from "../firebase/firebase";
+import { firebase, googleAuthProvider } from '../firebase/firebase';
 
 export const startLogin = () =>
-// Removed session limitation
   firebase
     .auth()
     .signInWithPopup(googleAuthProvider)
