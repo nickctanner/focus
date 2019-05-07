@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import NotesContext from '../context/notes-context';
+import NotesContext from "../context/notes-context";
 import SingleNoteContext from "../context/single-note-context";
 // import CredentialsContext from '../context/credentials-context';
 // import EditNoteForm from './EditNoteForm';
@@ -12,7 +12,7 @@ import NoteText from "./NoteText";
 // import { database } from '../firebase/firebase';
 
 const Note = ({ note }) => {
-   const { focus } = useContext(NotesContext);
+  const { focus } = useContext(NotesContext);
   // const { dispatch, focus } = useContext(NotesContext);
   // const { uid } = useContext(CredentialsContext);
   // const [editNote, setEditNote] = useState(false);
