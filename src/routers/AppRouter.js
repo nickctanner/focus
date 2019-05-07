@@ -47,7 +47,6 @@ const AppRouter = () => {
     });
 
     return () => (subscribed = false);
-    // Dependent on hasRendered?
   });
 
   return hasRendered ? (

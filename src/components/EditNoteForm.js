@@ -14,11 +14,6 @@ const EditNoteForm = ({ toggleTitleEdit }) => {
   const editTitle = (e, id) => {
     e.preventDefault();
     if (title) {
-      // dispatch({
-      //   type: "EDIT_NOTE",
-      //   title,
-      //   id
-      // });
       const updates = {
         ...note,
         title,
