@@ -80,4 +80,4 @@ const Note = ({ note }) => {
   );
 };
 
-export default Note;
+export { Note as default };
