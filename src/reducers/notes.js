@@ -12,6 +12,10 @@ const notesReducer = (state = [], action) => {
           ? { ...note, isComplete: !action.isComplete }
           : note
       );
+    case 'MOVE_COMPLETED':
+      const completed = state.filter(note => note.isComplete);
+      const notCompleted = state.filter(note => !note.isComplete);
+      return [...notCompleted, ...completed];
     case 'ADD_TEXT':
       return state.map(note =>
         note.id === action.id
@@ -25,10 +29,7 @@ const notesReducer = (state = [], action) => {
       return state.map(note =>
         note.id === action.id ? { ...note, title: action.title } : note
       );
-    case 'MOVE_COMPLETED':
-      const completed = state.filter(note => note.isComplete);
-      const notCompleted = state.filter(note => !note.isComplete);
-      return [...notCompleted, ...completed];
+
     case 'DELETE_ALL':
       state = [];
       return state;

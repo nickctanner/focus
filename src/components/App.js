@@ -24,7 +24,6 @@ const App = () => {
             ...childSnapshot.val(),
           });
         });
-
         dispatch({ type: 'POPULATE_NOTES', notes });
       });
   }, [uid]);

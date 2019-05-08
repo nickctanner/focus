@@ -13,23 +13,21 @@ const NoteTextForm = () => {
 
   const editNoteText = (e, id) => {
     e.preventDefault();
-    if (text) {
-      const updates = {
-        ...note,
-        text,
-      };
+    const updates = {
+      ...note,
+      text,
+    };
 
-      database
-        .ref(`users/${uid}/notes/${id}`)
-        .update(updates)
-        .then(() => {
-          dispatch({
-            type: 'ADD_TEXT',
-            text,
-            id,
-          });
+    database
+      .ref(`users/${uid}/notes/${id}`)
+      .update(updates)
+      .then(() => {
+        dispatch({
+          type: 'ADD_TEXT',
+          text,
+          id,
         });
-    }
+      });
   };
 
   return (
