@@ -36,7 +36,6 @@ const AddNoteForm = () => {
             })
           );
         });
-      console.log(note);
       setTitle('');
       setText('');
     }
