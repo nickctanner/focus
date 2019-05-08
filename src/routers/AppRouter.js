@@ -1,14 +1,13 @@
-import React, { Suspense, lazy, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Router, Route, Switch, Redirect } from 'react-router-dom';
 import { firebase } from '../firebase/firebase';
 import { createBrowserHistory } from 'history';
 
 import CredentialsContext from '../context/credentials-context';
-import NotFoundPage from '../components/NotFoundPage';
+import LoginPage from '../components/LoginPage';
+import App from '../components/App';
 import LoadingPage from '../components/LoadingPage';
-
-const LoginPage = lazy(() => import('../components/LoginPage'));
-const App = lazy(() => import('../components/App'));
+import NotFoundPage from '../components/NotFoundPage';
 
 const history = createBrowserHistory();
 
@@ -54,19 +53,17 @@ const AppRouter = () => {
 
   return hasRendered ? (
     <Router history={history}>
-      <Suspense fallback={LoadingPage}>
-        <CredentialsContext.Provider
-          value={{ userEmail, userAvatar, uid, isAuthenticated }}
-        >
-          <div>
-            <Switch>
-              <Route exact path='/' component={LoginPage} />
-              <Route path='/notes' component={App} />
-              <Route component={NotFoundPage} />
-            </Switch>
-          </div>
-        </CredentialsContext.Provider>
-      </Suspense>
+      <CredentialsContext.Provider
+        value={{ userEmail, userAvatar, uid, isAuthenticated }}
+      >
+        <div>
+          <Switch>
+            <Route exact path='/' component={LoginPage} />
+            <Route path='/notes' component={App} />
+            <Route component={NotFoundPage} />
+          </Switch>
+        </div>
+      </CredentialsContext.Provider>
     </Router>
   ) : (
     <LoadingPage />

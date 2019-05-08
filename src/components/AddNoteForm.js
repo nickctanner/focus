@@ -11,6 +11,7 @@ const AddNoteForm = () => {
   const [title, setTitle] = useState('');
   const [text, setText] = useState('');
   const [isComplete, setIsComplete] = useState(false);
+  const [id, setId] = useState('');
 
   const startAddNote = e => {
     e.preventDefault();
@@ -27,14 +28,15 @@ const AddNoteForm = () => {
         .ref(`users/${uid}/notes`)
         .push(note)
         .then(ref => {
+          setId(ref.key);
           dispatch(
             addNote({
-              id: ref.key,
+              id,
               ...note,
             })
           );
         });
-
+      console.log(note);
       setTitle('');
       setText('');
     }

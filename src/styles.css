@@ -270,6 +270,7 @@ body {
   padding: 1%;
   width: 100%;
   z-index: -1;
+  opacity: 0.8;
 }
 
 .back {
