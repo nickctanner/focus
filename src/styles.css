@@ -214,10 +214,20 @@ body {
   opacity: 0.8;
 }
 
+.fa-check-square,
+.fa-square {
+  font-size: 1.3rem;
+}
+
 @media (min-width: 960px) {
   .far,
   .fas {
     font-size: 1.3rem;
+  }
+
+  .fa-check-square,
+  .fa-square {
+    font-size: 1.5rem;
   }
 }
 

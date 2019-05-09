@@ -1,7 +1,10 @@
 const notesReducer = (state = [], action) => {
   switch (action.type) {
     case 'POPULATE_NOTES':
-      return action.notes.sort((a, b) => a.isComplete - b.isComplete);
+      return action.notes
+        .reverse()
+        .map(note => note)
+        .sort((a, b) => a.isComplete - b.isComplete);
     case 'ADD_NOTE':
       return [action.note, ...state];
     case 'REMOVE_NOTE':
@@ -13,10 +16,9 @@ const notesReducer = (state = [], action) => {
           : note
       );
     case 'MOVE_COMPLETED':
-      // const completed = state.filter(note => note.isComplete);
-      // const notCompleted = state.filter(note => !note.isComplete);
-      // return [...notCompleted, ...completed];
-      return state.sort((a, b) => a - b);
+      const completed = state.filter(note => note.isComplete);
+      const notCompleted = state.filter(note => !note.isComplete);
+      return [...notCompleted, ...completed];
     case 'ADD_TEXT':
       return state.map(note =>
         note.id === action.id

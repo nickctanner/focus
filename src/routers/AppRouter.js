@@ -18,18 +18,8 @@ const AppRouter = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [hasRendered, setHasRendered] = useState(false);
 
-  // const renderApp = () => {
-  //   if (!hasRendered) {
-  //     setHasRendered(true);
-  //   }
-  // };
-
   useEffect(() => {
     let subscribed = true;
-
-    // const renderApp = useCallback(() => {
-  //   return !hasRendered && setHasRendered(true);
-  // }, []);
 
     const renderApp = () => {
       if (!hasRendered) {
