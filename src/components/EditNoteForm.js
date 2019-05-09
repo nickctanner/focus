@@ -15,7 +15,6 @@ const EditNoteForm = ({ toggleTitleEdit }) => {
     e.preventDefault();
     if (title) {
       const updates = {
-        ...note,
         title,
       };
 
@@ -28,9 +27,9 @@ const EditNoteForm = ({ toggleTitleEdit }) => {
             title,
             id,
           });
-          toggleTitleEdit();
         });
     }
+    toggleTitleEdit();
   };
 
   return (

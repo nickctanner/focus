@@ -23,12 +23,11 @@ const NoteBody = ({ toggleNoteTextView }) => {
   const handleToggleCompleted = id => {
     setIsComplete(!note.isComplete);
     const updates = {
-      ...note,
       isComplete: !isComplete,
     };
 
     database
-      .ref(`users/${uid}/notes/${id}/`)
+      .ref(`users/${uid}/notes/${id}`)
       .update(updates)
       .then(() => {
         dispatch(toggleComplete(isComplete, id));

@@ -15,7 +15,7 @@ const NoteHandlerButtons = ({ toggleNoteTextView, note }) => {
 
     if (confirmed) {
       return database
-        .ref(`users/${uid}/notes/${id}/`)
+        .ref(`users/${uid}/notes/${id}`)
         .remove()
         .then(() => {
           dispatch({ type: 'REMOVE_NOTE', id });

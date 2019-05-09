@@ -385,7 +385,7 @@ body {
 
 .has-text {
   color: rgb(0, 143, 0);
-  box-shadow: 0 8px 10px 0 grey;
+  box-shadow: 2px 6px 8px 0 grey;
   opacity: 1;
 }
 
