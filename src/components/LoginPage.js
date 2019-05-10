@@ -1,21 +1,25 @@
-import React, { useContext } from "react";
+import React, { useState } from "react";
 
-import CredentialsContext from "../context/credentials-context";
-import { startLogin } from "../actions/auth";
+import { loginWithGoogle, startLoginWithEmailLink } from "../actions/auth";
 
 const LoginPage = () => {
-  const { handleLogin } = useContext(CredentialsContext);
+  const [showEmailLinkForm, setShowEmailLinkForm] = useState(false);
+
   return (
     <div className="login-box">
       <div className="login-box-inner">
         <h1>Focus</h1>
         <p>Simple. Clean. Done.</p>
+        <button className="button log" onClick={loginWithGoogle}>
+          Sign in with Google
+        </button>
         <button
           className="button log"
-          onClick={() => startLogin(handleLogin)}
+          onClick={() => setShowEmailLinkForm(!showEmailLinkForm)}
         >
-          Continue with Google
+          Sign in with email link
         </button>
+        {showEmailLinkForm && <EmailLinkAuthForm />}
       </div>
     </div>
   );
