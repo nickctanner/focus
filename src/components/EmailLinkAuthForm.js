@@ -12,7 +12,7 @@ const EmailLinkAuthForm = () => {
 
   return emailSent ? (
     <div>
-      <p>An login email has been sent to the provided address.</p>
+      <p>An email was sent to the address provided</p>
     </div>
   ) : (
     <form onSubmit={handleEmailSubmit}>

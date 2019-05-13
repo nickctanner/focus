@@ -17,35 +17,29 @@ const AppRouter = () => {
   const [uid, setUid] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [hasRendered, setHasRendered] = useState(false);
+  const [email, setEmail] = useState('');
 
   useEffect(() => {
     if (firebase.auth().isSignInWithEmailLink(window.location.href)) {
       console.log('Trying to sign in');
-      // Additional state parameters can also be passed via URL.
-      // This can be used to continue the user's intended action before triggering
-      // the sign-in operation.
-      // Get the email if available. This should be available if the user completes
-      // the flow on the same device where they started it.
-      let email = window.localStorage.getItem('emailForSignIn');
+      setEmail(window.localStorage.getItem('emailForSignIn'));
       if (!email) {
-        // User opened the link on a different device. To prevent session fixation
-        // attacks, ask the user to provide the associated email again. For example:
         email = window.prompt('Please provide your email for confirmation');
       }
-      // The client SDK will parse the code from the link for you.
+
       firebase
         .auth()
         .signInWithEmailLink(email, window.location.href)
         .then(result => {
           window.localStorage.removeItem('emailForSignIn');
-          // You can check if the user is new or existing:
           console.log(result.additionalUserInfo.isNewUser);
         })
         .catch(error => {
           console.log(error);
         });
     }
-  }, []);
+    // Added email dependency
+  }, [email]);
 
   useEffect(() => {
     let subscribed = true;
