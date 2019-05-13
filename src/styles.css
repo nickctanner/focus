@@ -330,6 +330,7 @@ body {
   font-size: 1rem;
   padding: 2% 5%;
   outline: none;
+  width: 100%;
 }
 
 #input-text {
