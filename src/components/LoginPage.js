@@ -1,10 +1,7 @@
-import React, { useState } from 'react';
-import EmailLinkAuthForm from './EmailLinkAuthForm';
+import React from 'react';
 import { loginWithGoogle } from '../actions/auth';
 
 const LoginPage = () => {
-  const [showEmailLinkForm, setShowEmailLinkForm] = useState(false);
-
   return (
     <div className='login-box'>
       <div className='login-box-inner'>
@@ -13,13 +10,6 @@ const LoginPage = () => {
         <button className='button log' onClick={loginWithGoogle}>
           Sign in with Google
         </button>
-        <button
-          className='button log'
-          onClick={() => setShowEmailLinkForm(!showEmailLinkForm)}
-        >
-          Sign in with email link
-        </button>
-        {showEmailLinkForm && <EmailLinkAuthForm />}
       </div>
     </div>
   );

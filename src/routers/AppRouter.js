@@ -17,29 +17,6 @@ const AppRouter = () => {
   const [uid, setUid] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [hasRendered, setHasRendered] = useState(false);
-  const [email, setEmail] = useState('');
-
-  useEffect(() => {
-    if (firebase.auth().isSignInWithEmailLink(window.location.href)) {
-      console.log('Trying to sign in');
-      setEmail(window.localStorage.getItem('emailForSignIn'));
-      if (!email) {
-        email = window.prompt('Please provide your email for confirmation');
-      }
-
-      firebase
-        .auth()
-        .signInWithEmailLink(email, window.location.href)
-        .then(result => {
-          window.localStorage.removeItem('emailForSignIn');
-          console.log(result.additionalUserInfo.isNewUser);
-        })
-        .catch(error => {
-          console.log(error);
-        });
-    }
-    // Added email dependency
-  }, [email]);
 
   useEffect(() => {
     let subscribed = true;

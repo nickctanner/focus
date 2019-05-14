@@ -8,23 +8,6 @@ export const loginWithGoogle = () =>
       console.log(error.code, error.message);
     });
 
-export const startSignInWithEmailLink = email => {
-  const actionCodeSettings = {
-    url: 'https://localhost:3000/notes',
-    handleCodeInApp: true,
-  };
-
-  firebase
-    .auth()
-    .sendSignInLinkToEmail(email, actionCodeSettings)
-    .then(() => {
-      window.localStorage.setItem('emailForSignIn', email);
-    })
-    .catch(error => {
-      console.log(error);
-    });
-};
-
 export const startLogout = () =>
   setTimeout(() => {
     firebase.auth().signOut();
