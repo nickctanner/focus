@@ -1,4 +1,5 @@
 import * as firebase from 'firebase';
+// import firebaseui from 'firebaseui';
 
 const config = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -9,11 +10,34 @@ const config = {
   messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
 };
 
+// const uiConfig = {
+//   signInSuccessUrl: '/notes',
+//   signInOptions: [
+//      firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+//      {
+      // provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
+      // requireDisplayName: false
+        // }
+//   ],
+//   tosUrl: '',
+//   privacyPolicyUrl: ''
+// };
+
 firebase.initializeApp(config);
+
+// const ui = new firebaseui.auth.AuthUI(firebase.auth());
+
+// const startFirebaseUI = element => {
+//   ui.start(element, uiConfig);
+// }
 
 const database = firebase.database();
 
 // Authenticate with Google
 const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 
-export { firebase, googleAuthProvider, database };
+export { firebase,
+         googleAuthProvider,
+         database,
+         // startFirebaseUI
+        };

@@ -26,25 +26,43 @@ const AppRouter = () => {
         setHasRendered(true);
       }
     };
-
-    firebase.auth().onAuthStateChanged(user => {
-      if (subscribed) {
-        if (user) {
-          setUid(user.uid);
-          setUserEmail(user.email);
-          setUserAvatar(user.photoURL);
-          setIsAuthenticated(true);
-          history.push('/notes');
-          renderApp();
-          return <Redirect to='/notes' />;
-        } else {
-          setIsAuthenticated(false);
-          history.push('/');
-          renderApp();
-          return <Redirect to='/' />;
-        }
-      }
-    });
+    
+ if (subscribed) {
+   firebase.auth().onAuthStateChanged(user => {
+       if (user) {
+         setUid(user.uid);
+         setUserEmail(user.email);
+         setUserAvatar(user.photoURL);
+         setIsAuthenticated(true);
+         history.push('/notes');
+         renderApp();
+         return <Redirect to='/notes' />;
+       } else {
+         setIsAuthenticated(false);
+         history.push('/');
+         renderApp();
+         return <Redirect to='/' />;
+       }
+   });
+ }
+    // firebase.auth().onAuthStateChanged(user => {
+    //   if (subscribed) {
+    //     if (user) {
+    //       setUid(user.uid);
+    //       setUserEmail(user.email);
+    //       setUserAvatar(user.photoURL);
+    //       setIsAuthenticated(true);
+    //       history.push('/notes');
+    //       renderApp();
+    //       return <Redirect to='/notes' />;
+    //     } else {
+    //       setIsAuthenticated(false);
+    //       history.push('/');
+    //       renderApp();
+    //       return <Redirect to='/' />;
+    //     }
+    //   }
+    // });
 
     return () => {
       subscribed = false;
