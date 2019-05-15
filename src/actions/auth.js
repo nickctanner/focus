@@ -1,12 +1,12 @@
-import { firebase, googleAuthProvider } from '../firebase/firebase';
+import { firebase } from '../firebase/firebase';
 
-export const loginWithGoogle = () =>
-  firebase
-    .auth()
-    .signInWithPopup(googleAuthProvider)
-    .catch(error => {
-      console.log(error.code, error.message);
-    });
+// export const loginWithGoogle = () =>
+//   firebase
+//     .auth()
+//     .signInWithPopup(googleAuthProvider)
+//     .catch(error => {
+//       console.log(error.code, error.message);
+//     });
 
 export const startLogout = () =>
   setTimeout(() => {
