@@ -10,7 +10,9 @@ const LoginPage = () => {
           <h1>Focus</h1>
           <p>Simple. Clean. Done.</p>
         </div>
-        <FirebaseAuth uiConfig={uiConfig} firebaseAuth={auth} />
+        <div>
+         <FirebaseAuth uiConfig={uiConfig} firebaseAuth={auth} />
+        </div>
       </div>
     </div>
   );
