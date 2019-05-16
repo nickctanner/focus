@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { loginWithEmailLink } from '../actions/auth';
+import { sendLoginWithEmailLink } from '../actions/auth';
 
 const EmailLinkForm = () => {
   const [email, setEmail] = useState('');
@@ -8,7 +8,7 @@ const EmailLinkForm = () => {
 
   const handleSubmitEmailLink = e => {
     e.preventDefault();
-    loginWithEmailLink(email);
+    sendLoginWithEmailLink(email);
     setSubmitEmail(true);
   };
 

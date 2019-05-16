@@ -1,4 +1,4 @@
-import { firebase, googleAuthProvider } from '../firebase/firebase';
+import { firebase, googleAuthProvider, actionCodeSettings } from '../firebase/firebase';
 
 export const loginWithGoogle = () =>
   firebase
@@ -8,14 +8,10 @@ export const loginWithGoogle = () =>
       console.log(error.code, error.message);
     });
 
-export const loginWithEmailLink = email => {
-  const actionCodeSettings = {
-    url: 'localhost:3000',
-    handleCodeInApp: true,
-  };
+export const sendLoginWithEmailLink = email => {
   firebase
     .auth()
-    .signInWithEmailLink(email, actionCodeSettings)
+    .sendSignInWithEmailLink(email, actionCodeSettings)
     .then(() => {
       window.localStorage.setItem('emailForSignIn', email);
     })
