@@ -13,21 +13,19 @@ const EditNoteForm = ({ toggleTitleEdit }) => {
 
   const editTitle = (e, id) => {
     e.preventDefault();
+
     if (title) {
+      dispatch({
+        type: 'EDIT_NOTE',
+        title,
+        id,
+      });
+
       const updates = {
         title,
       };
 
-      database
-        .ref(`users/${uid}/notes/${id}`)
-        .update(updates)
-        .then(() => {
-          dispatch({
-            type: 'EDIT_NOTE',
-            title,
-            id,
-          });
-        });
+      database.ref(`users/${uid}/notes/${id}`).update(updates);
     }
     toggleTitleEdit();
   };
@@ -41,9 +39,9 @@ const EditNoteForm = ({ toggleTitleEdit }) => {
         <div className='edit-note'>
           <input
             id='input-title'
-            value={title}
+            type='text'
+            defaultValue={note.title}
             onChange={e => setTitle(e.target.value)}
-            placeholder='Edit note'
             autoFocus
           />
         </div>

@@ -11,24 +11,9 @@ const config = {
 
 firebase.initializeApp(config);
 
-const uiConfig = {
-  signInSuccessUrl: '/notes',
-  signInFlow: 'popup',
-  signInOptions: [
-    firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-    {
-      provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
-      requireDisplayName: false,
-    },
-  ],
-  tosUrl: '',
-  privacyPolicyUrl: '',
-};
-
 const database = firebase.database();
-const auth = firebase.auth();
 
 // Authenticate with Google
-// const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
+const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 
-export { firebase, database, auth, uiConfig };
+export { firebase, database, googleAuthProvider };
