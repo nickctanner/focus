@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+
+// import EmailLinkForm from '../components/EmailLinkForm';
 import { loginWithGoogle } from '../actions/auth';
 
 const LoginPage = () => {
@@ -22,6 +24,7 @@ const LoginPage = () => {
             </button>
             {showInput && (
               <div style={{ fontSize: 12 }}>This feature coming soon!</div>
+              // <EmailLinkForm />
             )}
           </div>
         </div>

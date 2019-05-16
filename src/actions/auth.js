@@ -10,7 +10,7 @@ export const loginWithGoogle = () =>
 
 export const loginWithEmailLink = email => {
   const actionCodeSettings = {
-    url: 'localhost:3000/notes',
+    url: 'localhost:3000',
     handleCodeInApp: true,
   };
   firebase
