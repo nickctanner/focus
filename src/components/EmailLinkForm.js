@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { sendLoginWithEmailLink } from '../actions/auth';
 
-const EmailLinkForm = () => {
+const EmailLinkForm = ({ showInput }) => {
   const [email, setEmail] = useState('');
   const [submitEmail, setSubmitEmail] = useState(false);
 
@@ -12,20 +12,21 @@ const EmailLinkForm = () => {
     setSubmitEmail(true);
   };
 
-  return submitEmail ?
-  (
-    // setInterval()
-    <div>
-      <p>An login email has been sent the address provided</p>
-    </div>
-  ) :
-  (
-    <form onSubmit={e => handleSubmitEmailLink()} >
+  return submitEmail ? (
+    <p style={{ fontSize: 12 }}>
+      An login email has been sent the address provided
+    </p>
+  ) : (
+    <form
+      style={{ visibility: showInput ? 'visible' : 'hidden' }}
+      onSubmit={e => handleSubmitEmailLink(e)}
+    >
       <input
-        type="email"
+        type='email'
         value={email}
         onChange={e => setEmail(e.target.value)}
-        placeholder="Enter a valid email address"
+        placeholder='Enter a valid email address'
+        autoFocus
       />
     </form>
   );

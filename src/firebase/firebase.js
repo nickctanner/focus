@@ -15,9 +15,10 @@ const database = firebase.database();
 
 // Authenticate with Google
 const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
+
 // Authenticate with email link settings
 const actionCodeSettings = {
-  url: 'localhost:3000',
+  url: 'http://localhost:3000',
   handleCodeInApp: true,
 };
 
