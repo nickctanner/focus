@@ -13,7 +13,7 @@ const EmailLinkForm = ({ showInput }) => {
   };
 
   return submitEmail ? (
-    <p style={{ fontSize: 12 }}>
+    <p style={{ fontSize: "12px", visibility: showInput ? 'visible' : 'hidden' }}>
       An login email has been sent the address provided
     </p>
   ) : (

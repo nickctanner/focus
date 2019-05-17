@@ -6,8 +6,9 @@ import {
 
 export const loginWithGoogle = () =>
   firebase
-    .auth()
-    .signInWithPopup(googleAuthProvider)
+    .auth().setPersistence(firebase.auth.Auth.Persistence.SESSION).then(() => {
+      return signInWithPopup(googleAuthProvider)
+    })
     .catch(error => {
       console.log(error.code, error.message);
     });
@@ -30,8 +31,9 @@ export const loginWithEmailLink = () => {
     email = window.prompt('Please provide your email for confirmation');
   }
   firebase
-    .auth()
-    .signInWithEmailLink(email, window.location.href)
+    .auth().setPersistence(firebase.auth.Auth.Persistence.SESSION).then(() => {
+      return signInWithEmailLink(email, window.location.href);
+    })
     .then(result => {
       window.localStorage.removeItem('emailForSignIn');
     })
