@@ -12,23 +12,29 @@ const EmailLinkForm = ({ showInput }) => {
     setSubmitEmail(true);
   };
 
-  return submitEmail ? (
-    <p style={{ fontSize: "12px", visibility: showInput ? 'visible' : 'hidden' }}>
-      An login email has been sent the address provided
-    </p>
-  ) : (
-    <form
-      style={{ visibility: showInput ? 'visible' : 'hidden' }}
-      onSubmit={e => handleSubmitEmailLink(e)}
-    >
-      <input
-        type='email'
-        value={email}
-        onChange={e => setEmail(e.target.value)}
-        placeholder='Enter a valid email address'
-        autoFocus
-      />
-    </form>
+  return (
+    <>
+      <form
+        style={{ visibility: showInput ? 'visible' : 'hidden' }}
+        onSubmit={e => handleSubmitEmailLink(e)}
+      >
+        <input
+          type='email'
+          value={email}
+          onChange={e => setEmail(e.target.value)}
+          placeholder='Enter a valid email address'
+          autoFocus
+        />
+      </form>
+      <p
+        style={{
+          visibility: submitEmail ? 'visible' : 'hidden',
+          fontSize: '12px',
+        }}
+      >
+        An login email has been sent the address provided
+      </p>
+    </>
   );
 };
 

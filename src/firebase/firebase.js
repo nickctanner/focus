@@ -20,7 +20,7 @@ const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 const actionCodeSettings = {
   // To set url based on development or production
   url: 'http://localhost:3000',
-  handleCodeInApp: false,
+  handleCodeInApp: true,
 };
 
 export { firebase, database, googleAuthProvider, actionCodeSettings };

@@ -68,6 +68,10 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 0 6%;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
 }
 
 .header-title {
@@ -142,6 +146,7 @@ body {
 .notes-app {
   font-size: 90%;
   margin: 4% 6%;
+  padding-top: 60px;
 }
 
 @media (min-width: 960px) {
