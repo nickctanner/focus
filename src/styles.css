@@ -15,7 +15,7 @@ body {
   color: #1a283f;
 }
 
-.login-box {
+/* .login-box {
   align-items: center;
   color: white;
   background-color: #1a283f;
@@ -37,6 +37,7 @@ body {
 }
 
 .login-box-inner p {
+  font-size: 1.2rem;
   word-spacing: 5px;
   margin-bottom: 4rem;
 }
@@ -45,9 +46,9 @@ body {
   .login-box {
     zoom: 120%;
   }
-}
+} */
 
-.loader {
+/* .loader {
   align-items: center;
   display: flex;
   height: 100vh;
@@ -59,7 +60,7 @@ body {
   .loader {
     width: 100%;
   }
-}
+} */
 
 .header {
   background-color: #1a283f;
@@ -97,6 +98,7 @@ body {
 .header p {
   margin-top: 0;
   word-spacing: 5px;
+  padding: auto;
 }
 
 .header-profile {
@@ -146,7 +148,7 @@ body {
 .notes-app {
   font-size: 90%;
   margin: 4% 6%;
-  padding-top: 60px;
+  padding-top: 85px;
 }
 
 @media (min-width: 960px) {
@@ -253,7 +255,7 @@ body {
 .note-container-focus {
   background-color: white;
   position: relative;
-  margin-bottom: 4px;
+  margin-bottom: 5px;
   height: 100%;
   padding: 5%;
   width: 100%;
@@ -266,10 +268,9 @@ body {
 }
 
 .front {
-  position: relative;
   box-shadow: 5px 2px 13px -5px #2e3a4e;
   display: flex;
-  padding: 1% 0;
+  padding: 4px 0;
   width: 100%;
   z-index: 1;
 }
@@ -277,7 +278,7 @@ body {
 .front-complete {
   background-color: rgb(240, 240, 240);
   display: flex;
-  padding: 1%;
+  padding: 4px 0;
   width: 100%;
   z-index: -1;
   opacity: 0.8;
@@ -309,7 +310,7 @@ body {
   margin: auto auto auto 2%;
 }
 
-.complete {
+/* .complete {
   color: rgb(145, 143, 143);
   text-decoration: line-through;
   text-decoration-color: #1a283f;
@@ -317,7 +318,7 @@ body {
 
 .not-complete {
   text-decoration: none;
-}
+} */
 
 .edit-note {
   display: flex;
@@ -342,7 +343,7 @@ body {
   justify-content: space-between;
   flex-direction: column-reverse;
   padding-right: auto;
-  margin-right: 2%;
+  margin: 3px 2%;
 }
 
 @media (max-width: 440px) {
@@ -363,13 +364,13 @@ body {
   opacity: 1;
 }
 
-.login-buttons {
+/* .login-buttons {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+} */
 
-.log {
+/* .log {
   border: 1px solid lightblue;
   background: none;
   width: 70%;
@@ -377,7 +378,7 @@ body {
   margin-bottom: 10px;
   padding: 5px;
   opacity: 0.7;
-}
+} */
 
 .remove,
 .text {
@@ -462,7 +463,8 @@ textarea:focus {
   border: 2px solid white;
   background-color: grey;
   margin-top: 1%;
-  padding: 2px 20px;
+  padding: 4px;
+  width: 30%;
 }
 
 .fa-minus-circle {
@@ -474,7 +476,8 @@ textarea:focus {
   border: 2px solid white;
   color: #ffffff;
   margin-top: 1%;
-  padding: 2px 20px;
+  padding: 4px;
+  width: 30%;
 }
 
 .move:hover,

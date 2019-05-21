@@ -5,7 +5,7 @@ import NotesContext from '../context/notes-context';
 import SingleNoteContext from '../context/single-note-context';
 import CredentialsContext from '../context/credentials-context';
 import EditNoteForm from './EditNoteForm';
-import NoteTitle from './NoteTitle';
+import NoteTitle from './NoteTitle/NoteTitle';
 import NoteHandlerButtons from './NoteHandlerButtons';
 import { toggleComplete } from '../actions/notes';
 

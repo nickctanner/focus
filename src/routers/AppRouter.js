@@ -4,9 +4,9 @@ import { firebase } from '../firebase/firebase';
 import { createBrowserHistory } from 'history';
 
 import CredentialsContext from '../context/credentials-context';
-import LoginPage from '../components/LoginPage';
+import LoginPage from '../components/LoginPage/LoginPage';
 import App from '../components/App';
-import LoadingPage from '../components/LoadingPage';
+import LoadingPage from '../components/LoadingPage/LoadingPage';
 import NotFoundPage from '../components/NotFoundPage';
 import { loginWithEmailLink } from '../actions/auth';
 
