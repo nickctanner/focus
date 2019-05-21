@@ -1,0 +1,28 @@
+.addNote {
+  display: flex;
+  background-color: white;
+  border: 1px solid grey;
+  width: 100%;
+  opacity: 0.6;
+}
+
+.addNote input {
+  border: none;
+  font-size: 1.3rem;
+  background-color: transparent;
+  outline: none;
+  padding: 2%;
+  width: 100%;
+}
+
+@media (max-width: 960px) {
+  .addNote input {
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 960px) {
+  .addNote {
+    flex-direction: row;
+  }
+}

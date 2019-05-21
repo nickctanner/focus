@@ -1,0 +1,20 @@
+.noteContainer {
+  background-color: white;
+  position: relative;
+  margin-bottom: 4px;
+  height: 100%;
+  width: 100%;
+  transition: 0.2s;
+}
+
+.noteContainerFocus {
+  compose: noteContainer;
+  /* background-color: white;
+  position: relative; */
+  margin-bottom: 5px;
+  /* height: 100%; */
+  padding: 5%;
+  /* width: 100%; */
+  zoom: 120%;
+  transition: 0.2s;
+}

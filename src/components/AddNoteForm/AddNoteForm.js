@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { database } from 'firebase';
+import { database } from '../../firebase/firebase';
 
 import NotesContext from '../context/notes-context';
 import CredentialsContext from '../context/credentials-context';

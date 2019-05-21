@@ -1,17 +1,19 @@
 import React, { useContext } from "react";
 
-import NoteList from "./NoteList";
-import AddNoteForm from "./AddNoteForm";
+import NoteList from "./NoteList/NoteList";
+import AddNoteForm from "./AddNoteForm/AddNoteForm";
 import FilterButtons from "./FilterButtons";
-import Header from "./Header";
-import NotesContext from "../context/notes-context";
+import Header from './Header/Header';
+import NotesContext from "../../context/notes-context";
+
+import styles from './NotesPage.module.css';
 
 const NotesPage = () => {
   const { notes } = useContext(NotesContext);
   return (
     <>
       <Header />
-      <div className="notes-app">
+      <div className={styles.notesApp}>
         <AddNoteForm />
         {notes.length > 0 && <FilterButtons />}
         <NoteList />

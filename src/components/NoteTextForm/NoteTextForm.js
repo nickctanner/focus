@@ -1,9 +1,11 @@
 import React, { useState, useContext } from 'react';
-import { database } from '../firebase/firebase';
+import { database } from '../../firebase/firebase';
 
-import NotesContext from '../context/notes-context';
-import SingleNoteContext from '../context/single-note-context';
-import CredentialsContext from '../context/credentials-context';
+import NotesContext from '../../context/notes-context';
+import SingleNoteContext from '../../context/single-note-context';
+import CredentialsContext from '../../context/credentials-context';
+
+import styles from './NoteTextForm.module.css';
 
 const NoteTextForm = () => {
   const { note } = useContext(SingleNoteContext);
@@ -33,16 +35,16 @@ const NoteTextForm = () => {
   };
 
   return (
-    <div className='edit-note-text'>
-      <div className='edit-wrapper'>
+    <div className={styles.editNoteText}>
+      <div className={styles.editWrapper}>
         <form>
           <textarea
             rows='6'
-            className='note-text'
             defaultValue={note.text}
             onChange={e => setText(e.target.value)}
             onBlur={e => editNoteText(e, note.id)}
           />
+          // What is this below??
           <div className='display-text' />
         </form>
       </div>

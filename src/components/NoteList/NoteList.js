@@ -1,19 +1,21 @@
 import React, { useContext } from "react";
 
-import Note from "./Note";
-import NotesContext from "../context/notes-context";
+import Note from "./Note/Note";
+import NotesContext from "../../context/notes-context";
+
+import styles from './NoteList.module.css';
 
 const NoteList = () => {
   const { notes, focus } = useContext(NotesContext);
   return (
-    <div className="note-list" id="note-list">
+    <div className={styles.noteList}>
       {!focus ? (
         notes.map(note => {
 
           return <Note key={note.id} note={note} />
         })
       ) : notes.filter(note => note.isComplete).length === notes.length ? (
-        <div className="all-done-message">
+        <div className={styles.allDoneMessage}>
           <h1>All done!</h1>
           <p>Good work. Now return to normal mode to add more.</p>
         </div>

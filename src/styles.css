@@ -15,125 +15,6 @@ body {
   color: #1a283f;
 }
 
-/* .login-box {
-  align-items: center;
-  color: white;
-  background-color: #1a283f;
-  background-size: cover;
-  display: flex;
-  height: 100vh;
-  justify-content: center;
-  width: 100%;
-}
-
-.login-box-inner {
-  text-align: center;
-  font-size: 1.5rem;
-}
-
-.login-box-inner h1 {
-  margin-bottom: 16px;
-  line-height: 1;
-}
-
-.login-box-inner p {
-  font-size: 1.2rem;
-  word-spacing: 5px;
-  margin-bottom: 4rem;
-}
-
-@media (min-width: 1400px) {
-  .login-box {
-    zoom: 120%;
-  }
-} */
-
-/* .loader {
-  align-items: center;
-  display: flex;
-  height: 100vh;
-  justify-content: center;
-  width: 100vw;
-}
-
-@media (max-width: 480px) {
-  .loader {
-    width: 100%;
-  }
-} */
-
-.header {
-  background-color: #1a283f;
-  box-shadow: 2px 1px 4px #1a283f;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  padding: 0 6%;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1;
-}
-
-.header-title {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-@media (max-width: 480px) {
-  body {
-    zoom: 75%;
-  }
-
-  .header span {
-    display: none;
-  }
-}
-
-.header h1 {
-  margin: auto;
-}
-
-.header p {
-  margin-top: 0;
-  word-spacing: 5px;
-  padding: auto;
-}
-
-.header-profile {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 0.8rem;
-  margin-top: 10px;
-  zoom: 85%;
-}
-
-.header button {
-  align-self: flex-end;
-  min-width: 60px;
-}
-
-.credentials {
-  display: flex;
-  align-items: center;
-  margin: 0 auto 15px 0;
-}
-
-.credentials span {
-  margin-left: 10px;
-}
-
-.header img {
-  background-color: white;
-  border-radius: 50%;
-  height: 30px;
-  padding: 1px;
-  width: 30px;
-  margin-left: 19px;
-}
-
 #logo-header {
   color: white;
   font-size: 2.3rem;
@@ -145,47 +26,10 @@ body {
   opacity: 1;
 }
 
-.notes-app {
-  font-size: 90%;
-  margin: 4% 6%;
-  padding-top: 85px;
-}
-
-@media (min-width: 960px) {
-  .notes-app {
-    font-size: 100%;
-    margin: 2% 20%;
+@media (max-width: 480px) {
+  body {
+    zoom: 75%;
   }
-}
-
-.add-note {
-  display: flex;
-  background-color: white;
-  border: 1px solid grey;
-  width: 100%;
-  opacity: 0.6;
-}
-
-@media (min-width: 960px) {
-  .add-note {
-    flex-direction: row;
-  }
-}
-
-.add-note input {
-  border: none;
-  font-size: 1.3rem;
-  background-color: transparent;
-  outline: none;
-  padding: 2%;
-  width: 100%;
-}
-
-@media (max-width: 960px) {
-  .add-note input {
-    font-size: 1.1rem;
-  }
-}
 
 .button {
   color: white;
@@ -239,11 +83,167 @@ body {
   opacity: 1;
 }
 
-.note-list {
-  margin-top: 5%;
+/* .login-box {
+  align-items: center;
+  color: white;
+  background-color: #1a283f;
+  background-size: cover;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  width: 100%;
 }
 
-.note-container {
+.login-box-inner {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.login-box-inner h1 {
+  margin-bottom: 16px;
+  line-height: 1;
+}
+
+.login-box-inner p {
+  font-size: 1.2rem;
+  word-spacing: 5px;
+  margin-bottom: 4rem;
+}
+
+@media (min-width: 1400px) {
+  .login-box {
+    zoom: 120%;
+  }
+} */
+
+/* .loader {
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  width: 100vw;
+}
+
+@media (max-width: 480px) {
+  .loader {
+    width: 100%;
+  }
+} */
+
+/* .header {
+  background-color: #1a283f;
+  box-shadow: 2px 1px 4px #1a283f;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 6%;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.header-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} */
+
+  /* .header span {
+    display: none;
+  } */
+}
+
+/* .header h1 {
+  margin: auto;
+}
+
+.header p {
+  margin-top: 0;
+  word-spacing: 5px;
+  padding: auto;
+}
+
+.header-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.8rem;
+  margin-top: 10px;
+  zoom: 85%;
+}
+
+.header button {
+  align-self: flex-end;
+  min-width: 60px;
+}
+
+.credentials {
+  display: flex;
+  align-items: center;
+  margin: 0 auto 15px 0;
+}
+
+.credentials span {
+  margin-left: 10px;
+}
+
+.header img {
+  background-color: white;
+  border-radius: 50%;
+  height: 30px;
+  padding: 1px;
+  width: 30px;
+  margin-left: 19px;
+} */
+
+/* .notes-app {
+  font-size: 90%;
+  margin: 4% 6%;
+  padding-top: 85px;
+}
+
+@media (min-width: 960px) {
+  .notes-app {
+    font-size: 100%;
+    margin: 2% 20%;
+  }
+} */
+
+/* .add-note {
+  display: flex;
+  background-color: white;
+  border: 1px solid grey;
+  width: 100%;
+  opacity: 0.6;
+}
+
+@media (min-width: 960px) {
+  .add-note {
+    flex-direction: row;
+  }
+}
+
+.add-note input {
+  border: none;
+  font-size: 1.3rem;
+  background-color: transparent;
+  outline: none;
+  padding: 2%;
+  width: 100%;
+}
+
+@media (max-width: 960px) {
+  .add-note input {
+    font-size: 1.1rem;
+  }
+} */
+
+/* .note-list {
+  margin-top: 5%;
+} */
+
+/* .note-container {
   background-color: white;
   position: relative;
   margin-bottom: 4px;
@@ -261,7 +261,7 @@ body {
   width: 100%;
   zoom: 120%;
   transition: 0.2s;
-}
+} */
 
 .focus-mode {
   border-radius: 50px;
@@ -284,7 +284,7 @@ body {
   opacity: 0.8;
 }
 
-.back {
+/* .back {
   display: flex;
   font-size: 0.9rem;
   width: 100%;
@@ -295,7 +295,7 @@ body {
 
 .back p {
   margin-left: 5%;
-}
+} */
 
 @media (max-width: 960px) {
   .note-container {
@@ -414,29 +414,29 @@ body {
   background: none;
 }
 
-.edit-note-text {
+/* .edit-note-text {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 90%;
   margin: 0 0 0 10px;
-}
+} */
 
 @media (max-width: 440px) {
-  .edit-note-text {
+  /* .edit-note-text {
     flex-direction: column-reverse;
     margin-right: 1%;
-  }
+  } */
   .note-text-list {
     width: 100%;
   }
 }
 
-.edit-wrapper {
+/* .edit-wrapper {
   width: 100%;
-}
+} */
 
-textarea {
+/* textarea {
   border: none;
   width: 100%;
   position: relative;
@@ -451,7 +451,7 @@ textarea {
 
 textarea:focus {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
+} */
 
 .filter-container {
   display: flex;
@@ -486,7 +486,7 @@ textarea:focus {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.all-done-message,
+/* .all-done-message, */
 .add-note-message {
   color: white;
   text-align: center;
