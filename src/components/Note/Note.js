@@ -2,8 +2,10 @@ import React, { useState, useContext } from 'react';
 
 import NotesContext from '../../context/notes-context';
 import SingleNoteContext from '../../context/single-note-context';
-import NoteBody from './NoteBody';
-import NoteText from './NoteText/NoteText';
+import NoteBody from '../NoteBody/NoteBody';
+import NoteText from '../NoteText/NoteText';
+
+import styles from './Note.module.css';
 
 const Note = ({ note }) => {
   const { focus } = useContext(NotesContext);

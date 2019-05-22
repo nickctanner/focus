@@ -39,13 +39,11 @@ const NoteTextForm = () => {
       <div className={styles.editWrapper}>
         <form>
           <textarea
-            rows='6'
+            rows='5'
             defaultValue={note.text}
             onChange={e => setText(e.target.value)}
             onBlur={e => editNoteText(e, note.id)}
           />
-          // What is this below??
-          <div className='display-text' />
         </form>
       </div>
     </div>

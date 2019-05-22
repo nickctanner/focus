@@ -8,7 +8,7 @@ const NoteTitle = ({ toggleTitleEdit }) => {
   const { note } = useContext(SingleNoteContext);
   return (
     <div className={note.isComplete ? styles.complete : styles.notComplete}>
-      <h3 title='Edit note' onClick={toggleTitleEdit}>
+      <h3 title='Click to edit' onClick={toggleTitleEdit}>
         {note.title}
       </h3>
     </div>

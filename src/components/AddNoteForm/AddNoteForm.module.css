@@ -6,7 +6,7 @@
   opacity: 0.6;
 }
 
-.addNote input {
+#addTitle {
   border: none;
   font-size: 1.3rem;
   background-color: transparent;

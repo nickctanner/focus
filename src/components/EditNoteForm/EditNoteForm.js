@@ -1,9 +1,11 @@
 import React, { useState, useContext } from 'react';
-import { database } from '../firebase/firebase';
+import { database } from '../../firebase/firebase';
 
-import NotesContext from '../context/notes-context';
-import SingleNoteContext from '../context/single-note-context';
-import CredentialsContext from '../context/credentials-context';
+import NotesContext from '../../context/notes-context';
+import SingleNoteContext from '../../context/single-note-context';
+import CredentialsContext from '../../context/credentials-context';
+
+import styles from './EditNoteForm.module.css';
 
 const EditNoteForm = ({ toggleTitleEdit }) => {
   const { dispatch } = useContext(NotesContext);
@@ -32,13 +34,13 @@ const EditNoteForm = ({ toggleTitleEdit }) => {
 
   return (
     <>
-      <form id='edit-form' onSubmit={e => editTitle(e, note.id)}>
-        <button className='button edit-btn'>
+      <form id={styles.editForm} onSubmit={e => editTitle(e, note.id)}>
+        <button id={styles.editComplete} className='button'>
           <i className='fas fa-chevron-left' />
         </button>
-        <div className='edit-note'>
+        <div className={styles.editNote}>
           <input
-            id='input-title'
+            id={styles.editTitle}
             type='text'
             defaultValue={note.title}
             onChange={e => setTitle(e.target.value)}

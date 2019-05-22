@@ -1,9 +1,11 @@
 import React, { useState, useContext } from 'react';
-import { database } from '../../firebase/firebase';
+import { database } from 'firebase';
 
-import NotesContext from '../context/notes-context';
-import CredentialsContext from '../context/credentials-context';
-import { addNote } from '../actions/notes';
+import NotesContext from '../../context/notes-context';
+import CredentialsContext from '../../context/credentials-context';
+import { addNote } from '../../actions/notes';
+
+import styles from './AddNoteForm.module.css';
 
 const AddNoteForm = () => {
   const { dispatch, focus } = useContext(NotesContext);
@@ -44,9 +46,9 @@ const AddNoteForm = () => {
       onSubmit={startAddNote}
       style={{ visibility: focus ? 'hidden' : 'visible' }}
     >
-      <div className='add-note'>
+      <div className={styles.addNote}>
         <input
-          id='title'
+          id={styles.addTitle}
           value={title}
           onChange={e => setTitle(e.target.value)}
           placeholder='Add something to focus on...'

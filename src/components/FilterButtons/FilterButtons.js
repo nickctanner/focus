@@ -1,8 +1,10 @@
 import React, { useContext } from 'react';
-import { database } from '../firebase/firebase';
+import { database } from '../../firebase/firebase';
 
-import NotesContext from '../context/notes-context';
-import CredentialsContext from '../context/credentials-context';
+import NotesContext from '../../context/notes-context';
+import CredentialsContext from '../../context/credentials-context';
+
+import styles from './FilterButtons.module.css';
 
 const FilterButtons = () => {
   const { dispatch, focus, toggleFocus } = useContext(NotesContext);
@@ -33,16 +35,18 @@ const FilterButtons = () => {
   };
 
   return (
-    <div className='filter-container'>
+    <div className={styles.filterContainer}>
       <button
-        className='button move'
+        id={styles.focus}
+        className='button'
         onClick={() => focusMode()}
         title='Enter focus mode'
       >
         {focus ? 'Normal' : 'Focus'}
       </button>
       <button
-        className='button remove-all'
+        id={styles.deleteAll}
+        className='button'
         onClick={() => deleteAll()}
         style={{ display: focus ? 'none' : '' }}
       >

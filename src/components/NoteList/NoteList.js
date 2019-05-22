@@ -1,7 +1,7 @@
-import React, { useContext } from "react";
+import React, { useContext } from 'react';
 
-import Note from "./Note/Note";
-import NotesContext from "../../context/notes-context";
+import Note from '../Note/Note';
+import NotesContext from '../../context/notes-context';
 
 import styles from './NoteList.module.css';
 
@@ -11,8 +11,7 @@ const NoteList = () => {
     <div className={styles.noteList}>
       {!focus ? (
         notes.map(note => {
-
-          return <Note key={note.id} note={note} />
+          return <Note key={note.id} note={note} />;
         })
       ) : notes.filter(note => note.isComplete).length === notes.length ? (
         <div className={styles.allDoneMessage}>
@@ -20,13 +19,13 @@ const NoteList = () => {
           <p>Good work. Now return to normal mode to add more.</p>
         </div>
       ) : (
-            notes.map((note, idx) => {
-              if (idx === 0 && !note.isComplete) {
-                return <Note key={note.id} note={note} />;
-              }
-              return false;
-            })
-          )}
+        notes.map((note, idx) => {
+          if (idx === 0 && !note.isComplete) {
+            return <Note key={note.id} note={note} />;
+          }
+          return false;
+        })
+      )}
     </div>
   );
 };

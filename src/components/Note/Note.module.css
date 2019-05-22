@@ -8,13 +8,17 @@
 }
 
 .noteContainerFocus {
-  compose: noteContainer;
-  /* background-color: white;
-  position: relative; */
+  composes: noteContainer;
   margin-bottom: 5px;
-  /* height: 100%; */
   padding: 5%;
-  /* width: 100%; */
-  zoom: 120%;
   transition: 0.2s;
+  zoom: 120%;
+}
+
+@media (max-width: 960px) {
+  .noteContainer,
+  .noteContainerFocus {
+    justify-content: space-evenly;
+    align-items: flex-start;
+  }
 }

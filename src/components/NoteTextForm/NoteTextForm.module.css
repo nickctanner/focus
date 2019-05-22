@@ -12,13 +12,14 @@
 
 textarea {
   border: none;
-  width: 100%;
+  width: 97%;
   position: relative;
   background-color: rgb(250, 250, 170);
   line-height: 30px;
-  padding: 10px;
   font-size: 1.1rem;
   box-shadow: 1px 1px 2px 1px lightgrey;
+  margin: 0;
+  padding-left: 12px;
   resize: none;
   outline: none;
 }
