@@ -18,7 +18,7 @@ const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 
 // Authenticate with email link settings
 const actionCodeSettings = {
-  // To set url based on development or production
+  // TODO: set url based on development or production
   url: 'http://localhost:3000',
   handleCodeInApp: true,
 };
