@@ -1,0 +1,7 @@
+.emailInput {
+  border: none;
+  padding: 5px 10px;
+  width: 100%;
+  outline: none;
+  opacity: 0.8;
+}

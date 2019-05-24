@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect, useRef } from 'react';
 import { database } from 'firebase';
 
 import NotesContext from '../../context/notes-context';
@@ -13,6 +13,7 @@ const AddNoteForm = () => {
   const [title, setTitle] = useState('');
   const [text, setText] = useState('');
   const [isComplete, setIsComplete] = useState(false);
+  const input = useRef(null);
 
   const startAddNote = e => {
     e.preventDefault();
@@ -41,6 +42,10 @@ const AddNoteForm = () => {
     }
   };
 
+  useEffect(() => {
+    input.current.focus();
+  }, []);
+
   return (
     <form
       onSubmit={startAddNote}
@@ -49,6 +54,8 @@ const AddNoteForm = () => {
       <div className={styles.addNote}>
         <input
           id={styles.addTitle}
+          type='text'
+          ref={input}
           value={title}
           onChange={e => setTitle(e.target.value)}
           placeholder='Add something to focus on...'
