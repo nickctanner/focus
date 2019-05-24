@@ -4,12 +4,13 @@ import { firebase } from '../firebase/firebase';
 import { createBrowserHistory } from 'history';
 
 import CredentialsContext from '../context/credentials-context';
-import LoginPage from '../components/LoginPage';
-import NotFoundPage from '../components/NotFoundPage';
-import LoadingPage from '../components/LoadingPage';
+import LoginPage from '../components/LoginPage/LoginPage';
 import App from '../components/App';
+import LoadingPage from '../components/LoadingPage/LoadingPage';
+import NotFoundPage from '../components/NotFoundPage';
+import { loginWithEmailLink } from '../actions/auth';
 
-export const history = createBrowserHistory();
+const history = createBrowserHistory();
 
 const AppRouter = () => {
   const [userEmail, setUserEmail] = useState('');
@@ -18,17 +19,22 @@ const AppRouter = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [hasRendered, setHasRendered] = useState(false);
 
-  const renderApp = () => {
-    if (!hasRendered) {
-      setHasRendered(true);
-    }
-  };
-
   useEffect(() => {
+    if (firebase.auth().isSignInWithEmailLink(window.location.href)) {
+      loginWithEmailLink();
+    }
+    // Controls useEffect cleanup
     let subscribed = true;
 
-    firebase.auth().onAuthStateChanged(user => {
-      if (subscribed) {
+    // Controls rendering LoadingPage or Routes
+    const renderApp = () => {
+      if (!hasRendered) {
+        setHasRendered(true);
+      }
+    };
+
+    if (subscribed) {
+      firebase.auth().onAuthStateChanged(user => {
         if (user) {
           setUid(user.uid);
           setUserEmail(user.email);
@@ -43,11 +49,12 @@ const AppRouter = () => {
           renderApp();
           return <Redirect to='/' />;
         }
-      }
-    });
+      });
+    }
 
-    return () => (subscribed = false);
-    // Dependent on hasRendered?
+    return () => {
+      subscribed = false;
+    };
   });
 
   return hasRendered ? (
@@ -58,7 +65,7 @@ const AppRouter = () => {
         <div>
           <Switch>
             <Route exact path='/' component={LoginPage} />
-            <Route exact path='/notes' component={App} />
+            <Route path='/notes' component={App} />
             <Route component={NotFoundPage} />
           </Switch>
         </div>

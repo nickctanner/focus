@@ -1,0 +1,36 @@
+.editNoteText {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin: 0 0 0 10px;
+}
+
+.editWrapper {
+  width: 100%;
+}
+
+textarea {
+  border: none;
+  width: 97%;
+  position: relative;
+  background-color: rgb(250, 250, 170);
+  line-height: 30px;
+  font-size: 1.1rem;
+  box-shadow: 1px 1px 2px 1px lightgrey;
+  margin: 0;
+  padding-left: 12px;
+  resize: none;
+  outline: none;
+}
+
+textarea:focus {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+@media (max-width: 440px) {
+  .edit-note-text {
+    flex-direction: column-reverse;
+    margin-right: 1%;
+  }
+}

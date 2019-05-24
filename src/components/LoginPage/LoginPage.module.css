@@ -1,0 +1,38 @@
+.loginBox {
+  align-items: center;
+  color: white;
+  background-color: #1a283f;
+  background-size: cover;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  width: 100%;
+}
+
+.loginBoxInner {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.loginBoxInner h1 {
+  margin-bottom: 16px;
+  line-height: 1;
+}
+
+.loginBoxInner p {
+  font-size: 1.2rem;
+  word-spacing: 5px;
+  margin-bottom: 4rem;
+}
+
+.loginButtons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (min-width: 1400px) {
+  .login-box {
+    zoom: 120%;
+  }
+}

@@ -1,7 +1,9 @@
 import React from 'react';
 
+import styles from './LoadingPage.module.css';
+
 const LoadingPage = () => (
-  <div className='loader'>
+  <div className={styles.loader}>
     <img className='loader__image' src='/images/loader3.gif' alt='Loading...' />
   </div>
 );

@@ -1,8 +1,10 @@
 import React, { useContext } from 'react';
-import { database } from '../firebase/firebase';
+import { database } from '../../firebase/firebase';
 
-import NotesContext from '../context/notes-context';
-import CredentialsContext from '../context/credentials-context';
+import NotesContext from '../../context/notes-context';
+import CredentialsContext from '../../context/credentials-context';
+
+import styles from './NoteHandlerButtons.module.css';
 
 const NoteHandlerButtons = ({ toggleNoteTextView, note }) => {
   const { dispatch, focus } = useContext(NotesContext);
@@ -15,7 +17,7 @@ const NoteHandlerButtons = ({ toggleNoteTextView, note }) => {
 
     if (confirmed) {
       return database
-        .ref(`users/${uid}/notes/${id}/`)
+        .ref(`users/${uid}/notes/${id}`)
         .remove()
         .then(() => {
           dispatch({ type: 'REMOVE_NOTE', id });
@@ -25,16 +27,18 @@ const NoteHandlerButtons = ({ toggleNoteTextView, note }) => {
   };
 
   return (
-    <div className='handle-note-btns'>
+    <div className={styles.handleNoteButtons}>
       <button
-        className='button remove'
+        id={styles.remove}
+        className='button'
         onClick={() => handleRemoveNote(note.id)}
         style={{ display: focus ? 'none' : 'block' }}
       >
         <i className='far fa-trash-alt' />
       </button>
       <button
-        className='button text'
+        id={styles.text}
+        className='button'
         title='Additional information'
         onClick={() => toggleNoteTextView()}
       >

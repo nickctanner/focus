@@ -1,0 +1,19 @@
+.back {
+  display: flex;
+  font-size: 0.9rem;
+  width: 100%;
+  padding: 1%;
+  height: 100%;
+  min-height: 73px;
+}
+
+.back p {
+  margin-left: 5%;
+}
+
+#textComplete {
+  border: none;
+  outline: none;
+  background: none;
+  margin: 0 2%;
+}

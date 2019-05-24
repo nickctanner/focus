@@ -4,7 +4,7 @@ import { database } from '../firebase/firebase';
 import notesReducer from '../reducers/notes';
 import NotesContext from '../context/notes-context';
 import CredentialsContext from '../context/credentials-context';
-import NotesPage from './NotesPage';
+import NotesPage from './NotesPage/NotesPage';
 
 const App = () => {
   const [notes, dispatch] = useReducer(notesReducer, []);
@@ -24,7 +24,6 @@ const App = () => {
             ...childSnapshot.val(),
           });
         });
-
         dispatch({ type: 'POPULATE_NOTES', notes });
       });
   }, [uid]);

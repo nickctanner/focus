@@ -1,0 +1,24 @@
+.noteContainer {
+  background-color: white;
+  position: relative;
+  margin-bottom: 4px;
+  height: 100%;
+  width: 100%;
+  transition: 0.2s;
+}
+
+.noteContainerFocus {
+  composes: noteContainer;
+  margin-bottom: 5px;
+  padding: 5%;
+  transition: 0.2s;
+  zoom: 120%;
+}
+
+@media (max-width: 960px) {
+  .noteContainer,
+  .noteContainerFocus {
+    justify-content: space-evenly;
+    align-items: flex-start;
+  }
+}

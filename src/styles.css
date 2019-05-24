@@ -1,5 +1,4 @@
-/* // import normalize.css?
-// Organize with one folder per component? */
+/* Add normalize? */
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300');
 
@@ -8,7 +7,179 @@
   word-break: break-word;
 }
 
-.login-box {
+body {
+  background-color: lightblue;
+  font-family: 'Open Sans', sans-serif;
+  margin: auto;
+  color: #1a283f;
+}
+
+@media (max-width: 480px) {
+  body {
+    zoom: 80%;
+  }
+}
+
+.button {
+  color: white;
+  border: none;
+  border-radius: 3px;
+  outline: none;
+  transition-duration: 0.4s;
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+/* Login/logout buttons */
+
+.log {
+  border: 1px solid lightblue;
+  background: none;
+  width: 70%;
+  color: white;
+  margin-bottom: 10px;
+  padding: 5px;
+  opacity: 0.7;
+}
+
+.log:hover {
+  opacity: 1;
+}
+
+/* Font awesome styles */
+
+.far,
+.fas {
+  color: #1a283f;
+  font-size: 1rem;
+  align-self: center;
+  opacity: 0.8;
+}
+
+#add-btn {
+  border: none;
+  outline: none;
+  background: none;
+  margin-right: 2%;
+}
+
+.fa-check-square,
+.fa-square {
+  font-size: 1.3rem;
+}
+
+.fa-trash-alt {
+  color: rgb(219, 1, 1);
+}
+
+.fa-check-square {
+  opacity: 1;
+}
+
+.far:hover,
+.fas:hover {
+  opacity: 1;
+}
+
+.fa-minus-circle {
+  color: red;
+}
+
+.fa-trash-alt {
+  color: rgb(219, 1, 1);
+}
+
+.has-text {
+  color: rgb(0, 143, 0);
+  box-shadow: 2px 6px 8px 0 grey;
+  opacity: 1;
+}
+
+@media (min-width: 960px) {
+  .far,
+  .fas {
+    font-size: 1.3rem;
+  }
+
+  .fa-check-square,
+  .fa-square {
+    font-size: 1.5rem;
+  }
+}
+
+/* .edit-btn {
+  background: none;
+} */
+
+/* .remove,
+.text {
+  background: none;
+  font-size: 1.2rem;
+  margin: 2%;
+  padding: 0 5px;
+  opacity: 0.8;
+} */
+
+/* #check-complete {
+  background: none;
+  border: none;
+  outline: none;
+  margin: 2%;
+  align-self: center;
+} */
+
+/* .focus {
+  background-color: rgb(255, 166, 0);
+  border: 2px solid white;
+  color: #ffffff;
+  margin-top: 1%;
+  padding: 4px;
+  width: 30%;
+} */
+
+/* .delete-all {
+  border: 2px solid white;
+  background-color: grey;
+  margin-top: 1%;
+  padding: 4px;
+  width: 30%;
+} */
+
+/* .move:hover,
+.delete-all:hover,
+.focus:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+} */
+
+/* @media (max-width: 440px) {
+  /* .edit-note-text {
+    flex-direction: column-reverse;
+    margin-right: 1%;
+  } */
+/* .note-text-list {
+    width: 100%;
+  } */
+
+/* .front {
+    box-shadow: 5px 2px 13px -5px #2e3a4e;
+    display: flex;
+    padding: 4px 0;
+    width: 100%;
+    z-index: 1;
+  }
+
+  .front-complete {
+    background-color: rgb(240, 240, 240);
+    display: flex;
+    padding: 4px 0;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.8;
+  } */
+
+/* .login-box {
   align-items: center;
   color: white;
   background-color: #1a283f;
@@ -21,6 +192,7 @@
 
 .login-box-inner {
   text-align: center;
+  font-size: 1.5rem;
 }
 
 .login-box-inner h1 {
@@ -29,6 +201,7 @@
 }
 
 .login-box-inner p {
+  font-size: 1.2rem;
   word-spacing: 5px;
   margin-bottom: 4rem;
 }
@@ -37,16 +210,9 @@
   .login-box {
     zoom: 120%;
   }
-}
+} */
 
-body {
-  background-color: lightblue;
-  font-family: 'Open Sans', sans-serif;
-  margin: auto;
-  color: #1a283f;
-}
-
-.loader {
+/* .loader {
   align-items: center;
   display: flex;
   height: 100vh;
@@ -58,46 +224,39 @@ body {
   .loader {
     width: 100%;
   }
-}
+} */
 
-.header {
+/* .header {
   background-color: #1a283f;
   box-shadow: 2px 1px 4px #1a283f;
   color: white;
   display: flex;
   justify-content: space-between;
-  padding: 1% 6%;
+  padding: 0 6%;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
 }
 
 .header-title {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+} */
 
-@media (max-width: 480px) {
-  body {
-    zoom: 75%;
-  }
-
-  .header span {
+/* .header span {
     display: none;
-  }
-}
+  } */
 
-@media (min-width: 960px) {
-  .header {
-    padding: 1% 5%;
-  }
-}
-
-.header h1 {
-  margin: 2%;
+/* .header h1 {
+  margin: auto;
 }
 
 .header p {
   margin-top: 0;
   word-spacing: 5px;
+  padding: auto;
 }
 
 .header-profile {
@@ -130,23 +289,13 @@ body {
   height: 30px;
   padding: 1px;
   width: 30px;
-  margin-left: 15px;
-}
+  margin-left: 19px;
+} */
 
-#logo-header {
-  color: white;
-  font-size: 2.3rem;
-  opacity: 1;
-  margin-right: 10px;
-}
-
-.log:hover {
-  opacity: 1;
-}
-
-.notes-app {
+/* .notes-app {
   font-size: 90%;
   margin: 4% 6%;
+  padding-top: 85px;
 }
 
 @media (min-width: 960px) {
@@ -154,9 +303,9 @@ body {
     font-size: 100%;
     margin: 2% 20%;
   }
-}
+} */
 
-.add-note {
+/* .add-note {
   display: flex;
   background-color: white;
   border: 1px solid grey;
@@ -183,55 +332,13 @@ body {
   .add-note input {
     font-size: 1.1rem;
   }
-}
+} */
 
-.button {
-  color: white;
-  border: none;
-  border-radius: 3px;
-  outline: none;
-  transition-duration: 0.4s;
-}
-
-.button:hover {
-  cursor: pointer;
-}
-
-#add-btn,
-#edit-btn,
-.text {
-  border: none;
-  outline: none;
-  background: none;
-  margin-right: 2%;
-}
-
-.far,
-.fas {
-  color: #1a283f;
-  font-size: 1rem;
-  align-self: center;
-  opacity: 0.8;
-}
-
-@media (min-width: 960px) {
-  .far,
-  .fas {
-    font-size: 1.3rem;
-  }
-}
-
-.far:hover,
-.filter-container:hover,
-.fas:hover {
-  opacity: 1;
-}
-
-.note-list {
+/* .note-list {
   margin-top: 5%;
-}
+} */
 
-.note-container {
+/* .note-container {
   background-color: white;
   position: relative;
   margin-bottom: 4px;
@@ -243,62 +350,41 @@ body {
 .note-container-focus {
   background-color: white;
   position: relative;
-  margin-bottom: 4px;
+  margin-bottom: 5px;
   height: 100%;
   padding: 5%;
   width: 100%;
   zoom: 120%;
   transition: 0.2s;
-}
+} */
 
-.focus-mode {
-  border-radius: 50px;
-}
-
-.front {
-  position: relative;
-  box-shadow: 5px 2px 20px -5px #2e3a4e;
+/* .back {
   display: flex;
-  padding: 1%;
-  width: 100%;
-  z-index: 1;
-}
-
-.front-complete {
-  background-color: rgb(240, 240, 240);
-  display: flex;
-  padding: 1%;
-  width: 100%;
-  z-index: -1;
-}
-
-.back {
-  display: flex;
-  padding: 1%;
   font-size: 0.9rem;
   width: 100%;
+  padding: 1% 0;
   height: 100%;
   min-height: 73px;
 }
 
 .back p {
   margin-left: 5%;
-}
+} */
 
-@media (max-width: 960px) {
+/* @media (max-width: 960px) {
   .note-container {
     justify-content: space-evenly;
     align-items: flex-start;
   }
-}
+} */
 
-.note-wrapper {
+/* .note-wrapper {
   display: flex;
   width: 100%;
   margin: auto auto auto 2%;
-}
+} */
 
-.complete {
+/* .complete {
   color: rgb(145, 143, 143);
   text-decoration: line-through;
   text-decoration-color: #1a283f;
@@ -306,77 +392,57 @@ body {
 
 .not-complete {
   text-decoration: none;
-}
+} */
 
-.edit-note {
+/* .edit-note {
   display: flex;
   border-bottom: 2px solid #1a283f;
   opacity: 0.7;
-}
+} */
 
-#input-title {
+/* #input-title {
   border: none;
-  font-size: 1rem;
+  font-size: 1.2rem;
   padding: 2% 5%;
   outline: none;
+  width: 100%;
 }
 
 #input-text {
   visibility: hidden;
-}
+} */
 
-.handle-note-btns {
+/* .handle-note-btns {
   display: flex;
   justify-content: space-between;
   flex-direction: column-reverse;
   padding-right: auto;
-  margin-right: 2%;
+  margin: 3px 2%;
 }
 
 @media (max-width: 440px) {
   .handle-note-btns {
     justify-content: space-around;
   }
-}
+} */
 
-#check-complete {
-  background: none;
-  border: none;
-  outline: none;
-  margin: 2%;
-  align-self: center;
-}
+/* .login-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} */
 
-.fa-check-square {
-  opacity: 1;
-}
-
-.log {
+/* .log {
   border: 1px solid lightblue;
   background: none;
-  width: 100%;
+  width: 70%;
   color: white;
+  margin-bottom: 10px;
   padding: 5px;
   opacity: 0.7;
-}
+} */
 
-.remove,
-.text {
-  background: none;
-  font-size: 1.2rem;
-  padding: 0 5px;
-  opacity: 0.8;
-}
-
-.fa-trash-alt {
-  color: rgb(219, 1, 1);
-}
-
-.has-text {
-  color: rgb(0, 143, 0);
-}
-
-.edit-note {
+/* .edit-note {
   width: 100%;
 }
 
@@ -384,35 +450,23 @@ body {
   display: flex;
   justify-content: space-around;
   width: 95%;
-}
+  margin: 1% 0;
+  padding: 1% auto;
+} */
 
-.edit-btn {
-  background: none;
-}
-
-.edit-note-text {
+/* .edit-note-text {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 90%;
   margin: 0 0 0 10px;
-}
+} */
 
-@media (max-width: 440px) {
-  .edit-note-text {
-    flex-direction: column-reverse;
-    margin-right: 1%;
-  }
-  .note-text-list {
-    width: 100%;
-  }
-}
-
-.edit-wrapper {
+/* .edit-wrapper {
   width: 100%;
-}
+} */
 
-textarea {
+/* textarea {
   border: none;
   width: 100%;
   position: relative;
@@ -423,58 +477,20 @@ textarea {
   box-shadow: 1px 1px 2px 1px lightgrey;
   resize: none;
   outline: none;
-  background-image: linear-gradient(
-      to right,
-      rgb(250, 250, 170) 10px,
-      transparent 10px
-    ),
-    linear-gradient(to left, rgb(250, 250, 170) 10px, transparent 10px),
-    repeating-linear-gradient(
-      rgb(250, 250, 170),
-      rgb(250, 250, 170) 30px,
-      #ccc 30px,
-      #ccc 31px,
-      rgb(250, 250, 170) 30px
-    );
 }
 
 textarea:focus {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
+} */
 
-.filter-container {
+/* .filter-container {
   display: flex;
   justify-content: space-between;
   opacity: 0.6;
-}
+} */
 
-.remove-all {
-  border: 2px solid white;
-  background-color: grey;
-  margin-top: 1%;
-  padding: 2px 20px;
-}
-
-.fa-minus-circle {
-  color: red;
-}
-
-.move {
-  background-color: rgb(255, 166, 0);
-  border: 2px solid white;
-  color: #ffffff;
-  margin-top: 1%;
-  padding: 2px 20px;
-}
-
-.move:hover,
-.remove-all:hover,
-.focus:hover {
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.all-done-message,
-.add-note-message {
+/* .all-done-message, */
+/* .add-note-message {
   color: white;
   text-align: center;
-}
+} */
