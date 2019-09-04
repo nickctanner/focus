@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from '../NoteTextForm/node_modules/react';
 
-import { sendLoginWithEmailLink } from '../../actions/auth';
+import { sendLoginWithEmailLink } from '../../../actions/auth';
 
 import styles from './EmailLinkForm.module.css';
 

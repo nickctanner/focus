@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
-import { database } from '../../firebase/firebase';
+import { database } from '../../../firebase/firebase';
 
-import NotesContext from '../../context/notes-context';
-import CredentialsContext from '../../context/credentials-context';
+import NotesContext from '../../../context/notes-context';
+import CredentialsContext from '../../../context/credentials-context';
 
 import styles from './NoteHandlerButtons.module.css';
 

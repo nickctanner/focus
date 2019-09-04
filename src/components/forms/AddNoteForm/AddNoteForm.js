@@ -1,9 +1,9 @@
-import React, { useState, useContext, useEffect, useRef } from 'react';
+import React, { useState, useContext, useEffect, useRef } from '../NoteTextForm/node_modules/react';
 import { database } from 'firebase';
 
-import NotesContext from '../../context/notes-context';
-import CredentialsContext from '../../context/credentials-context';
-import { addNote } from '../../actions/notes';
+import NotesContext from '../../../context/notes-context';
+import CredentialsContext from '../../../context/credentials-context';
+import { addNote } from '../../../actions/notes';
 
 import styles from './AddNoteForm.module.css';
 

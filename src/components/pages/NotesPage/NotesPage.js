@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 
-import NoteList from '../NoteList/NoteList';
+import NoteList from '../../NoteList/NoteList';
 import AddNoteForm from '../AddNoteForm/AddNoteForm';
-import FilterButtons from '../FilterButtons/FilterButtons';
-import Header from '../Header/Header';
-import NotesContext from '../../context/notes-context';
+import FilterButtons from '../../FilterButtons/FilterButtons';
+import Header from '../../Header/Header';
+import NotesContext from '../../../context/notes-context';
 
 import styles from './NotesPage.module.css';
 

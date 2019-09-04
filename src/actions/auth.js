@@ -38,7 +38,7 @@ export const loginWithEmailLink = () => {
     .then(() => {
       return firebase.auth().signInWithEmailLink(email, window.location.href);
     })
-    .then(result => {
+    .then(() => {
       window.localStorage.removeItem('emailForSignIn');
     })
     .catch(error => {

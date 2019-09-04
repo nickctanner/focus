@@ -4,10 +4,10 @@ import { firebase } from '../firebase/firebase';
 import { createBrowserHistory } from 'history';
 
 import CredentialsContext from '../context/credentials-context';
-import LoginPage from '../components/LoginPage/LoginPage';
+import LoginPage from '../components/pages/LoginPage/LoginPage';
 import App from '../components/App';
-import LoadingPage from '../components/LoadingPage/LoadingPage';
-import NotFoundPage from '../components/NotFoundPage';
+import LoadingPage from '../components/pages/LoadingPage/LoadingPage';
+import NotFoundPage from '../components/pages/NotFoundPage';
 import { loginWithEmailLink } from '../actions/auth';
 
 const history = createBrowserHistory();
