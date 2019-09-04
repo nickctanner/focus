@@ -16,7 +16,7 @@ const NoteTextForm = () => {
   const editNoteText = (e, id) => {
     e.preventDefault();
 
-    if (text) {
+    if (text || text.length === 0) {
       const updates = {
         text,
       };

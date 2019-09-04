@@ -29,23 +29,22 @@ const NoteHandlerButtons = ({ toggleNoteTextView, note }) => {
   return (
     <div className={styles.handleNoteButtons}>
       <button
-        id={styles.remove}
-        className='button'
+        className={`button ${styles.remove}`}
         onClick={() => handleRemoveNote(note.id)}
         style={{ display: focus ? 'none' : 'block' }}
       >
         <i className='far fa-trash-alt' />
       </button>
       <button
-        id={styles.text}
-        className='button'
+        className={`button ${styles.text} ${/\S+/g.test(note.text) &&
+          styles.hasText} }`}
         title='Additional information'
         onClick={() => toggleNoteTextView()}
       >
         <i
           className={
             /\S+/g.test(note.text)
-              ? 'fas fa-clipboard-list has-text'
+              ? 'fas fa-clipboard-list'
               : 'far fa-clipboard'
           }
         />
