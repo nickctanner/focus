@@ -32,7 +32,9 @@ const notesReducer = (state = [], action) => {
       return state.map(note =>
         note.id === action.id ? { ...note, title: action.title } : note
       );
-
+    case 'FOCUS_NOTES':
+      const shifted = state.shift();
+      return [...state, shifted].sort((a, b) => a.isComplete - b.isComplete);
     case 'DELETE_ALL':
       state = [];
       return state;

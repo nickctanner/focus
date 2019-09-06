@@ -1,4 +1,4 @@
-import React, { useState, useContext } from '../NoteTextForm/node_modules/react';
+import React, { useState, useContext } from 'react';
 import { database } from '../../../firebase/firebase';
 
 import NotesContext from '../../../context/notes-context';

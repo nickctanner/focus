@@ -7,10 +7,12 @@ import styles from './NoteList.module.css';
 
 const NoteList = () => {
   const { notes, focus } = useContext(NotesContext);
+
   return (
     <div className={styles.noteList}>
       {!focus ? (
         notes.map(note => {
+          console.log(notes);
           return <Note key={note.id} note={note} />;
         })
       ) : notes.filter(note => note.isComplete).length === notes.length ? (

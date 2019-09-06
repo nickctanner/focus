@@ -1,6 +1,6 @@
 import React from 'react';
 
-import NoteTextForm from '../NoteTextForm/NoteTextForm';
+import NoteTextForm from '../forms/NoteTextForm/NoteTextForm';
 
 import styles from './NoteText.module.css';
 

@@ -34,9 +34,9 @@ export const loginWithEmailLink = () => {
   }
   firebase
     .auth()
-    .setPersistence(firebase.auth.Auth.Persistence.SESSION)
+    .signInWithEmailLink(email, window.location.href)
     .then(() => {
-      return firebase.auth().signInWithEmailLink(email, window.location.href);
+      firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION);
     })
     .then(() => {
       window.localStorage.removeItem('emailForSignIn');

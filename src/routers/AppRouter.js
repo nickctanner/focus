@@ -23,10 +23,9 @@ const AppRouter = () => {
     if (firebase.auth().isSignInWithEmailLink(window.location.href)) {
       loginWithEmailLink();
     }
-    // Controls useEffect cleanup
+
     let subscribed = true;
 
-    // Controls rendering LoadingPage or Routes
     const renderApp = () => {
       if (!hasRendered) {
         setHasRendered(true);
@@ -55,7 +54,7 @@ const AppRouter = () => {
     return () => {
       subscribed = false;
     };
-  });
+  }, [uid, hasRendered]);
 
   return hasRendered ? (
     <Router history={history}>

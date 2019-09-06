@@ -4,14 +4,14 @@ import { database } from '../../firebase/firebase';
 import NotesContext from '../../context/notes-context';
 import SingleNoteContext from '../../context/single-note-context';
 import CredentialsContext from '../../context/credentials-context';
-import EditNoteForm from '../EditNoteForm/EditNoteForm';
+import EditNoteForm from '../forms/EditNoteForm/EditNoteForm';
 import NoteTitle from '../NoteTitle/NoteTitle';
 import NoteHandlerButtons from '../buttons/NoteHandlerButtons/NoteHandlerButtons';
 import { toggleComplete } from '../../actions/notes';
 
 import styles from './NoteBody.module.css';
 
-const NoteBody = ({ toggleNoteTextView }) => {
+const NoteBody = ({ toggleNoteTextView, hovered }) => {
   const { dispatch } = useContext(NotesContext);
   const { note } = useContext(SingleNoteContext);
   const { uid } = useContext(CredentialsContext);
@@ -58,7 +58,11 @@ const NoteBody = ({ toggleNoteTextView }) => {
           <NoteTitle toggleTitleEdit={toggleTitleEdit} />
         )}
       </div>
-      <NoteHandlerButtons toggleNoteTextView={toggleNoteTextView} note={note} />
+      <NoteHandlerButtons
+        toggleNoteTextView={toggleNoteTextView}
+        note={note}
+        hovered={hovered}
+      />
     </div>
   );
 };

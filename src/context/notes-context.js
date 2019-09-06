@@ -1,4 +1,4 @@
-import React from "../components/forms/NoteTextForm/node_modules/react";
+import React from 'react';
 
 const NotesContext = React.createContext();
 
