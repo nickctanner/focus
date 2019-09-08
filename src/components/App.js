@@ -1,13 +1,13 @@
 import React, { useState, useContext, useEffect, useReducer } from 'react';
 import { database } from '../firebase/firebase';
 
-import notesReducer from '../reducers/notes';
+import noteReducer from '../reducers/note';
 import NotesContext from '../context/notes-context';
 import CredentialsContext from '../context/credentials-context';
-import NotesPage from './NotesPage/NotesPage';
+import NotesPage from './pages/NotesPage/NotesPage';
 
 const App = () => {
-  const [notes, dispatch] = useReducer(notesReducer, []);
+  const [notes, dispatch] = useReducer(noteReducer, []);
   const { uid } = useContext(CredentialsContext);
   const [focus, setFocus] = useState(false);
 

@@ -1,7 +1,7 @@
 #editForm {
   display: flex;
   justify-content: space-around;
-  width: 95%;
+  width: 100%;
   margin: 1% 0;
   padding: 1% auto;
 }
@@ -9,16 +9,21 @@
 .editNote {
   width: 100%;
   display: flex;
-  border-bottom: 2px solid #1a283f;
   opacity: 0.7;
 }
 
 #editTitle {
   border: none;
-  font-size: 1.2rem;
+  font-size: 1.17rem;
   padding: 2% 5%;
   outline: none;
   width: 100%;
+}
+
+@media (max-width: 480px) {
+  #editTitle {
+    font-size: 1rem;
+  }
 }
 
 #editComplete {

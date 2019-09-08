@@ -4,10 +4,10 @@ import { firebase } from '../firebase/firebase';
 import { createBrowserHistory } from 'history';
 
 import CredentialsContext from '../context/credentials-context';
-import LoginPage from '../components/LoginPage/LoginPage';
+import LoginPage from '../components/pages/LoginPage/LoginPage';
 import App from '../components/App';
-import LoadingPage from '../components/LoadingPage/LoadingPage';
-import NotFoundPage from '../components/NotFoundPage';
+import LoadingPage from '../components/pages/LoadingPage/LoadingPage';
+import NotFoundPage from '../components/pages/NotFoundPage';
 import { loginWithEmailLink } from '../actions/auth';
 
 const history = createBrowserHistory();
@@ -23,10 +23,9 @@ const AppRouter = () => {
     if (firebase.auth().isSignInWithEmailLink(window.location.href)) {
       loginWithEmailLink();
     }
-    // Controls useEffect cleanup
+
     let subscribed = true;
 
-    // Controls rendering LoadingPage or Routes
     const renderApp = () => {
       if (!hasRendered) {
         setHasRendered(true);
@@ -55,14 +54,14 @@ const AppRouter = () => {
     return () => {
       subscribed = false;
     };
-  });
+  }, [uid, hasRendered]);
 
   return hasRendered ? (
     <Router history={history}>
       <CredentialsContext.Provider
         value={{ userEmail, userAvatar, uid, isAuthenticated }}
       >
-        <div>
+        <div className='main'>
           <Switch>
             <Route exact path='/' component={LoginPage} />
             <Route path='/notes' component={App} />

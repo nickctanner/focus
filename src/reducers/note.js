@@ -1,10 +1,11 @@
-const notesReducer = (state = [], action) => {
+const noteReducer = (state = [], action) => {
   switch (action.type) {
     case 'POPULATE_NOTES':
       return action.notes
         .reverse()
         .map(note => note)
-        .sort((a, b) => a.isComplete - b.isComplete);
+        .sort((a, b) => b.priority || null - a.priority || null)
+        .sort((x, y) => x.isComplete - y.isComplete);
     case 'ADD_NOTE':
       return [action.note, ...state];
     case 'REMOVE_NOTE':
@@ -15,10 +16,15 @@ const notesReducer = (state = [], action) => {
           ? { ...note, isComplete: !action.isComplete }
           : note
       );
-    case 'MOVE_COMPLETED':
-      const completed = state.filter(note => note.isComplete);
-      const notCompleted = state.filter(note => !note.isComplete);
-      return [...notCompleted, ...completed];
+    case 'TOGGLE_PRIORITY':
+      return state.map(note =>
+        note.id === action.id ? { ...note, priority: !action.priority } : note
+      );
+    case 'NOTE_REORDER':
+      const priority = state.filter(note => note.priority && !note.isComplete);
+      const neither = state.filter(note => !note.priority && !note.isComplete);
+      const done = state.filter(note => note.isComplete);
+      return [...priority, ...neither, ...done];
     case 'ADD_TEXT':
       return state.map(note =>
         note.id === action.id
@@ -32,7 +38,9 @@ const notesReducer = (state = [], action) => {
       return state.map(note =>
         note.id === action.id ? { ...note, title: action.title } : note
       );
-
+    case 'FOCUS_NOTES':
+      const shifted = state.shift();
+      return [...state, shifted].sort((a, b) => a.isComplete - b.isComplete);
     case 'DELETE_ALL':
       state = [];
       return state;
@@ -41,4 +49,4 @@ const notesReducer = (state = [], action) => {
   }
 };
 
-export { notesReducer as default };
+export { noteReducer as default };

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-import { sendLoginWithEmailLink } from '../../actions/auth';
+import { sendLoginWithEmailLink } from '../../../actions/auth';
 
 import styles from './EmailLinkForm.module.css';
 
@@ -13,6 +13,10 @@ const EmailLinkForm = ({ showInput }) => {
     e.preventDefault();
     sendLoginWithEmailLink(email);
     setSubmitEmail(true);
+
+    setTimeout(() => {
+      setEmail('');
+    }, 3000);
   };
 
   useEffect(() => {
@@ -41,7 +45,7 @@ const EmailLinkForm = ({ showInput }) => {
           fontSize: '12px',
         }}
       >
-        An email containing a link was sent the address provided
+        An email containing a link was sent to the address provided
       </p>
     </>
   );

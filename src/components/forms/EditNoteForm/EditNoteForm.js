@@ -1,9 +1,9 @@
 import React, { useState, useContext } from 'react';
-import { database } from '../../firebase/firebase';
+import { database } from '../../../firebase/firebase';
 
-import NotesContext from '../../context/notes-context';
-import SingleNoteContext from '../../context/single-note-context';
-import CredentialsContext from '../../context/credentials-context';
+import NotesContext from '../../../context/notes-context';
+import SingleNoteContext from '../../../context/single-note-context';
+import CredentialsContext from '../../../context/credentials-context';
 
 import styles from './EditNoteForm.module.css';
 

@@ -7,6 +7,7 @@ import styles from './NoteList.module.css';
 
 const NoteList = () => {
   const { notes, focus } = useContext(NotesContext);
+
   return (
     <div className={styles.noteList}>
       {!focus ? (

@@ -8,3 +8,9 @@ export const toggleComplete = (isComplete, id) => ({
   isComplete,
   id,
 });
+
+export const togglePriority = (priority, id) => ({
+  type: 'TOGGLE_PRIORITY',
+  priority,
+  id,
+});

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-import EmailLinkForm from '../EmailLinkForm/EmailLinkForm';
-import { loginWithGoogle } from '../../actions/auth';
+import EmailLinkForm from '../../forms/EmailLinkForm/EmailLinkForm';
+import { loginWithGoogle } from '../../../actions/auth';
 
 import styles from './LoginPage.module.css';
 

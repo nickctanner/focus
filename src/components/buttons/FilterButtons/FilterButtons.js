@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
-import { database } from '../../firebase/firebase';
+import { database } from '../../../firebase/firebase';
 
-import NotesContext from '../../context/notes-context';
-import CredentialsContext from '../../context/credentials-context';
+import NotesContext from '../../../context/notes-context';
+import CredentialsContext from '../../../context/credentials-context';
 
 import styles from './FilterButtons.module.css';
 
@@ -29,9 +29,16 @@ const FilterButtons = () => {
 
   const focusMode = () => {
     toggleFocus();
+    dispatch({ type: 'NOTE_REORDER' });
     return !focus
       ? (document.body.style.background = '#1a283f')
       : (document.body.style.background = 'lightblue');
+  };
+
+  const nextItem = () => {
+    dispatch({
+      type: 'FOCUS_NOTES',
+    });
   };
 
   return (
@@ -47,10 +54,11 @@ const FilterButtons = () => {
       <button
         id={styles.deleteAll}
         className='button'
-        onClick={() => deleteAll()}
-        style={{ display: focus ? 'none' : '' }}
+        onClick={focus ? () => nextItem() : () => deleteAll()}
+        /* style={{ display: focus ? 'none' : '' }} */
       >
-        Delete All
+        {focus ? 'Next Item' : 'Delete All'}
+        {focus && <i className='fa fa-arrow-right' aria-hidden='true'></i>}
       </button>
     </div>
   );
