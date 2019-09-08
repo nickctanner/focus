@@ -29,6 +29,7 @@ const FilterButtons = () => {
 
   const focusMode = () => {
     toggleFocus();
+    dispatch({ type: 'NOTE_REORDER' });
     return !focus
       ? (document.body.style.background = '#1a283f')
       : (document.body.style.background = 'lightblue');

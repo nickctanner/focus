@@ -12,7 +12,6 @@ const NoteList = () => {
     <div className={styles.noteList}>
       {!focus ? (
         notes.map(note => {
-          console.log(notes);
           return <Note key={note.id} note={note} />;
         })
       ) : notes.filter(note => note.isComplete).length === notes.length ? (

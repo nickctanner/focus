@@ -61,7 +61,7 @@ const AppRouter = () => {
       <CredentialsContext.Provider
         value={{ userEmail, userAvatar, uid, isAuthenticated }}
       >
-        <div>
+        <div className='main'>
           <Switch>
             <Route exact path='/' component={LoginPage} />
             <Route path='/notes' component={App} />

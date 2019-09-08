@@ -1,9 +1,14 @@
 .notesApp {
   font-size: 90%;
   margin: 4% 6%;
-  padding-top: 85px;
+  padding-top: 45px;
 }
 
+@media (min-width: 480px) {
+  .notesApp {
+    padding-top: 75px;
+  }
+}
 @media (min-width: 960px) {
   .notesApp {
     font-size: 100%;

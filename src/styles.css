@@ -1,8 +1,9 @@
 /* Add normalize? */
 
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300');
+@import url('https://fonts.googleapis.com/css?family=Livvic:300&display=swap');
 
 * {
+  font-family: 'Livvic', sans-serif;
   box-sizing: border-box;
   word-break: break-word;
 }
@@ -11,7 +12,7 @@ body {
   background-color: lightblue;
   font-family: 'Open Sans', sans-serif;
   margin: auto;
-  color: #1a283f;
+  transition-duration: 0.4s;
 }
 
 @media (max-width: 480px) {

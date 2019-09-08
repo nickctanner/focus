@@ -27,6 +27,7 @@ const Header = () => {
         <button
           className='button log'
           style={{ display: focus ? 'none' : 'block' }}
+          title='Sign Out'
           onClick={startLogout}
         >
           Sign Out
