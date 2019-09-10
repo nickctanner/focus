@@ -11,29 +11,31 @@ const Header = () => {
   const { userEmail, userAvatar } = useContext(CredentialsContext);
 
   return (
-    <div
-      className={styles.header}
-      style={{ visibility: focus ? 'hidden' : 'visible' }}
-    >
-      <div className={styles.headerTitle}>
-        <h1>Focus</h1>
-        <p>Simple. Clean. Done.</p>
-      </div>
-      <div className={styles.headerProfile}>
-        <div className={styles.credentials}>
-          <span>{userEmail}</span>
-          <img src={userAvatar || '/images/user.png'} alt="User's Avatar" />
+    <header>
+      <div
+        className={styles.header}
+        style={{ visibility: focus ? 'hidden' : 'visible' }}
+      >
+        <div className={styles.headerTitle}>
+          <h1>Focus</h1>
+          <p>Simple. Clean. Done.</p>
         </div>
-        <button
-          className='button log'
-          style={{ display: focus ? 'none' : 'block' }}
-          title='Sign Out'
-          onClick={startLogout}
-        >
-          Sign Out
-        </button>
+        <div className={styles.headerProfile}>
+          <div className={styles.credentials}>
+            <span>{userEmail}</span>
+            <img src={userAvatar || '/images/user.png'} alt="User's Avatar" />
+          </div>
+          <button
+            className='button log'
+            style={{ display: focus ? 'none' : 'block' }}
+            title='Sign Out'
+            onClick={startLogout}
+          >
+            Sign Out
+          </button>
+        </div>
       </div>
-    </div>
+    </header>
   );
 };
 

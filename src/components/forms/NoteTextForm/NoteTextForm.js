@@ -4,6 +4,7 @@ import { database } from '../../../firebase/firebase';
 import NotesContext from '../../../context/notes-context';
 import SingleNoteContext from '../../../context/single-note-context';
 import CredentialsContext from '../../../context/credentials-context';
+import { ADD_TEXT } from '../../../actions/types';
 
 import styles from './NoteTextForm.module.css';
 
@@ -26,7 +27,7 @@ const NoteTextForm = () => {
         .update(updates)
         .then(() => {
           dispatch({
-            type: 'ADD_TEXT',
+            type: ADD_TEXT,
             text,
             id,
           });

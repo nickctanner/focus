@@ -4,6 +4,7 @@ import { database } from 'firebase';
 import NotesContext from '../../../context/notes-context';
 import CredentialsContext from '../../../context/credentials-context';
 import { addNote } from '../../../actions/notes';
+import { NOTES_REORDER } from '../../../actions/types';
 
 import styles from './AddNoteForm.module.css';
 
@@ -36,6 +37,9 @@ const AddNoteForm = () => {
               ...note,
             })
           );
+          dispatch({
+            type: NOTES_REORDER,
+          });
         });
       setTitle('');
       setText('');

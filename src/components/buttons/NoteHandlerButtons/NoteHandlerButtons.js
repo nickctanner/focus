@@ -4,6 +4,7 @@ import { database } from '../../../firebase/firebase';
 import NotesContext from '../../../context/notes-context';
 import SingleNoteContext from '../../../context/single-note-context';
 import CredentialsContext from '../../../context/credentials-context';
+import { REMOVE_NOTE } from '../../../actions/types';
 
 import styles from './NoteHandlerButtons.module.css';
 
@@ -22,7 +23,7 @@ const NoteHandlerButtons = ({ toggleNoteTextView, hovered }) => {
         .ref(`users/${uid}/notes/${id}`)
         .remove()
         .then(() => {
-          dispatch({ type: 'REMOVE_NOTE', id });
+          dispatch({ type: REMOVE_NOTE, id });
         });
     }
     return false;

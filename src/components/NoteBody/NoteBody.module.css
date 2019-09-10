@@ -20,22 +20,3 @@
   z-index: -1;
   opacity: 0.8;
 }
-
-.checkComplete {
-  background: none;
-  border: none;
-  outline: none;
-  margin: 2%;
-  align-self: center;
-}
-
-.priority {
-  background: none;
-  border: none;
-  outline: none;
-}
-
-.noPriority {
-  composes: priority;
-  opacity: 0.2;
-}

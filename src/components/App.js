@@ -1,10 +1,11 @@
 import React, { useState, useContext, useEffect, useReducer } from 'react';
 import { database } from '../firebase/firebase';
 
-import noteReducer from '../reducers/note';
+import noteReducer from '../reducers/notes';
 import NotesContext from '../context/notes-context';
 import CredentialsContext from '../context/credentials-context';
 import NotesPage from './pages/NotesPage/NotesPage';
+import { POPULATE_NOTES } from '../actions/types';
 
 const App = () => {
   const [notes, dispatch] = useReducer(noteReducer, []);
@@ -24,7 +25,7 @@ const App = () => {
             ...childSnapshot.val(),
           });
         });
-        dispatch({ type: 'POPULATE_NOTES', notes });
+        dispatch({ type: POPULATE_NOTES, notes });
       });
   }, [uid]);
 

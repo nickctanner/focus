@@ -4,6 +4,7 @@ import { database } from '../../../firebase/firebase';
 import NotesContext from '../../../context/notes-context';
 import SingleNoteContext from '../../../context/single-note-context';
 import CredentialsContext from '../../../context/credentials-context';
+import { EDIT_NOTE } from '../../../actions/types';
 
 import styles from './EditNoteForm.module.css';
 
@@ -18,7 +19,7 @@ const EditNoteForm = ({ toggleTitleEdit }) => {
 
     if (title) {
       dispatch({
-        type: 'EDIT_NOTE',
+        type: EDIT_NOTE,
         title,
         id,
       });

@@ -7,8 +7,9 @@ import CredentialsContext from '../../context/credentials-context';
 import EditNoteForm from '../forms/EditNoteForm/EditNoteForm';
 import NoteTitle from '../NoteTitle/NoteTitle';
 import NoteHandlerButtons from '../buttons/NoteHandlerButtons/NoteHandlerButtons';
-import { toggleComplete } from '../../actions/notes';
-import { togglePriority } from '../../actions/notes';
+import NoteFilterButtons from '../buttons/NoteFilterButtons/NoteFilterButtons';
+import { toggleComplete, togglePriority } from '../../actions/notes';
+import { NOTES_REORDER } from '../../actions/types';
 
 import styles from './NoteBody.module.css';
 
@@ -36,7 +37,7 @@ const NoteBody = ({ toggleNoteTextView, hovered }) => {
       .then(() => {
         dispatch(toggleComplete(isComplete, id));
         setTimeout(() => {
-          dispatch({ type: 'NOTE_REORDER' });
+          dispatch({ type: NOTES_REORDER });
         }, 500);
       });
   };
@@ -53,38 +54,19 @@ const NoteBody = ({ toggleNoteTextView, hovered }) => {
       .then(() => {
         dispatch(togglePriority(priority, id));
         setTimeout(() => {
-          dispatch({ type: 'NOTE_REORDER' });
+          dispatch({ type: NOTES_REORDER });
         }, 500);
       });
   };
 
   return (
     <div className={note.isComplete ? styles.frontComplete : styles.front}>
-      <button
-        type='checkbox'
-        name={note.title}
-        className={styles.checkComplete}
-        onClick={() => handleToggleCompleted(note.id)}
-        title={isComplete ? 'Mark Not Completed' : 'Mark Completed'}
-      >
-        <i
-          className={
-            note.isComplete ? 'fas fa-check-circle' : 'far fa-dot-circle'
-          }
-        />
-      </button>
-
-      <button
-        className={priority ? styles.priority : styles.noPriority}
-        onClick={() => handleTogglePriority(note.id)}
-        title={priority ? 'Remove Priority' : 'Give Priority'}
-      >
-        {priority ? (
-          <i className='fas fa-hand-point-up' style={{ color: 'red' }}></i>
-        ) : (
-          <i className='far fa-hand-point-up'></i>
-        )}
-      </button>
+      <NoteFilterButtons
+        handleToggleCompleted={handleToggleCompleted}
+        handleTogglePriority={handleTogglePriority}
+        isComplete={isComplete}
+        priority={priority}
+      />
       <div className={styles.noteWrapper}>
         {editNote ? (
           <EditNoteForm toggleTitleEdit={toggleTitleEdit} />

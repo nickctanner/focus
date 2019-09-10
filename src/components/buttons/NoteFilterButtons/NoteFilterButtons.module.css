@@ -1,0 +1,29 @@
+.noteFilterButtons {
+  display: flex;
+}
+
+.checkComplete {
+  background: none;
+  border: none;
+  outline: none;
+  margin: 2%;
+  align-self: center;
+}
+
+.priority {
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.noPriority {
+  composes: priority;
+  opacity: 0.2;
+}
+
+@media (max-width: 480px) {
+  .noteFilterButtons {
+    flex-direction: column;
+    justify-content: space-around;
+  }
+}

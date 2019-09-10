@@ -13,11 +13,13 @@ const NotesPage = () => {
   return (
     <>
       <Header />
-      <div className={styles.notesApp}>
-        <AddNoteForm />
-        {notes.length > 0 && <FilterButtons />}
-        <NoteList />
-      </div>
+      <main>
+        <div className={styles.notesApp}>
+          <AddNoteForm />
+          {notes.length > 0 && <FilterButtons />}
+          <NoteList />
+        </div>
+      </main>
     </>
   );
 };

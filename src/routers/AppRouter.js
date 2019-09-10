@@ -61,13 +61,11 @@ const AppRouter = () => {
       <CredentialsContext.Provider
         value={{ userEmail, userAvatar, uid, isAuthenticated }}
       >
-        <div className='main'>
-          <Switch>
-            <Route exact path='/' component={LoginPage} />
-            <Route path='/notes' component={App} />
-            <Route component={NotFoundPage} />
-          </Switch>
-        </div>
+        <Switch>
+          <Route exact path='/' component={LoginPage} />
+          <Route path='/notes' component={App} />
+          <Route component={NotFoundPage} />
+        </Switch>
       </CredentialsContext.Provider>
     </Router>
   ) : (

@@ -3,6 +3,7 @@ import { database } from '../../../firebase/firebase';
 
 import NotesContext from '../../../context/notes-context';
 import CredentialsContext from '../../../context/credentials-context';
+import { DELETE_ALL, NOTES_REORDER, FOCUS_NOTES } from '../../../actions/types';
 
 import styles from './FilterButtons.module.css';
 
@@ -22,24 +23,23 @@ const FilterButtons = () => {
         .ref(`users/${uid}/notes/`)
         .set(notes)
         .then(() => {
-          dispatch({ type: 'DELETE_ALL' });
+          dispatch({ type: DELETE_ALL });
         });
     }
   };
 
   const focusMode = () => {
     toggleFocus();
-    dispatch({ type: 'NOTE_REORDER' });
+    dispatch({ type: NOTES_REORDER });
     return !focus
       ? (document.body.style.background = '#1a283f')
       : (document.body.style.background = 'lightblue');
   };
 
-  const nextItem = () => {
+  const nextItem = () =>
     dispatch({
-      type: 'FOCUS_NOTES',
+      type: FOCUS_NOTES,
     });
-  };
 
   return (
     <div className={styles.filterContainer}>
@@ -55,7 +55,6 @@ const FilterButtons = () => {
         id={styles.deleteAll}
         className='button'
         onClick={focus ? () => nextItem() : () => deleteAll()}
-        /* style={{ display: focus ? 'none' : '' }} */
       >
         {focus ? 'Next Item' : 'Delete All'}
         {focus && <i className='fa fa-arrow-right' aria-hidden='true'></i>}
