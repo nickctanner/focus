@@ -15,7 +15,7 @@ const NotesPage = () => {
       <Header />
       <main>
         <div className={styles.notesApp}>
-          <AddNoteForm />
+          /* <AddNoteForm /> */
           {notes.length > 0 && <FilterButtons />}
           <NoteList />
         </div>
